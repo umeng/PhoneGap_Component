@@ -4,6 +4,17 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
+    <plugins>
+        <feature name="AnalyticsSDK">
+            <param name="android-package" value="com.umeng.plugin.AnalyticsSDK" />
+        </feature>
+        <feature name="PushSDK">
+            <param name="android-package" value="com.umeng.plugin.PushSDK" />
+        </feature>
+        <feature name="SocialSDK">
+            <param name="android-package" value="com.umeng.plugin.SocialSDK" />
+        </feature>
+    </plugins>
     <name>PhoneGap_Component</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

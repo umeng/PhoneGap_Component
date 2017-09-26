@@ -20,6 +20,7 @@
 package com.umeng.soexample;
 
 import android.os.Bundle;
+import com.umeng.plugin.AnalyticsSDK;
 import org.apache.cordova.*;
 
 public class MainActivity extends CordovaActivity
@@ -37,5 +38,6 @@ public class MainActivity extends CordovaActivity
 
         // Set by <content src="index.html" /> in config.xml
         loadUrl(launchUrl);
+
     }
 }

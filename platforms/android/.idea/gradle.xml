@@ -9,6 +9,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/CordovaLib" />
+            <option value="$PROJECT_DIR$/push" />
+            <option value="$PROJECT_DIR$/social" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -1,3 +1,4 @@
+include ':social', ':push'
 // GENERATED FILE - DO NOT EDIT
 include ":"
 include ":CordovaLib"
