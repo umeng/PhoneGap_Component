@@ -41,28 +41,7 @@
     <script type="text/javascript">
 	function onLoad() {
 	}
-	function deviceId(obj) {
-		document.getElementById("DeviceId").innerHTML = obj;
-	}
-	function eventWithParameters() {
-		var eventData = new Object();
-		eventData.name = "aaa";
-		eventData.age = 17;
-		MobclickAgent.onEventWithParameters('EventParameters', eventData);
-	}
-	function eventWithCounter() {
-		var eventCounter = new Object();
-		eventCounter.name = "key";
-		eventCounter.age = 17;
-		MobclickAgent.onEventWithCounter("EventCounter", eventCounter, 12);
-	}
-	function onCCEvent() {
-		var eventArray = new Array();
-		eventArray[0] = "one";
-		eventArray[1] = "two";
-		eventArray[2] = "tree"
-		MobclickAgent.onCCEvent(eventArray, 10, "eventlabel");
-	}
+
 		function gotoBack() {
 		window.location.href='index.html';
 	}
@@ -75,33 +54,35 @@
 
 <br />
 <input type="button" value="分享文本"
-       onclick="MobclickAgent.getDeviceId(deviceId)" />
+       onclick="SocialAgent.directShare( function(r){alert('' +r);}, 'text share','','','',2)" />
 
 <br />
 <br />
 <br />
 <input type="button" value="分享链接"
-       onclick="MobclickAgent.onEvent('Event0')" />
+       onclick="SocialAgent.directShare( function(r){alert('' +r);}, 'des share','https://mobile.umeng.com/images/pic/home/social/img-1.png','http://www.umeng.com','umeng',0)"  />
 <br />
 <br />
 <br />
 <input type="button" value="分享图片"
-       onclick="MobclickAgent.onEventWithLabel('EventLabel', 'Label')" />
+       onclick="SocialAgent.directShare( function(r){alert('' +r);}, 'des share','https://mobile.umeng.com/images/pic/home/social/img-1.png','','',0)"  />
+
 <br />
 <br />
 <br />
 <input type="button" value="分享面板"
-       onclick="eventWithCounter()" />
+       onclick="SocialAgent.openShare( function(r){alert('' +r);}, 'des share','https://mobile.umeng.com/images/pic/home/social/img-1.png','http://www.umeng.com','umeng',[0,1,2,3])"  />
+
 <br />
 <br />
 <br />
 <input type="button" value="授权"
-       onclick="eventWithParameters()" />
+       onclick="SocialAgent.auth( function(r){alert('' +r);},0)" />
 <br />
 <br />
 <br />
 <input type="button" value="获取用户资料"
-       onclick="MobclickAgent.onPageBegin('Home')" />
+       onclick="SocialAgent.getInfo( function(r){alert('' +r);},0)" />
 <br />
 
 <br />

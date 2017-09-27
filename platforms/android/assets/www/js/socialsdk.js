@@ -7,6 +7,7 @@ cordova.define("Umeng.Social", function(require, exports, module) {
 
 
         directShare : function(callBack,text,img,url,title,platform) {
+               alert("123")
                cordova.exec(callBack, null, "SocialSDK","directShare", [text,img,url,title,platform]);
         },
         openShare : function(callBack,text,img,url,title,platforms) {
