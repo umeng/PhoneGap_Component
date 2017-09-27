@@ -20,7 +20,7 @@ import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.common.ResContainer;
 import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.media.UMWeb;
-import com.umeng.socialize.utils.Log;
+
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
@@ -51,6 +51,7 @@ public class SocialSDK  extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
+        android.util.Log.e("xxxxxx","execute");
         if (action.equals("directShare")) {
             String text = args.getString(0);
             String img = args.getString(1);
@@ -259,13 +260,13 @@ public class SocialSDK  extends CordovaPlugin {
                         int imgId = ResContainer.getResourceId(mActivity, "drawable", imgNameString1);
                         shareImage = new UMImage(mActivity, imgId);
                     } else {
-                        Log.e("u3d", "### 请检查你传递的图片路径 : " + imgName);
+
                     }
                 }
             } else {
                 File imgFile2 = new File(imgName);
                 if(!imgFile2.exists()) {
-                    Log.e("u3d", "### 要分享的本地图片不存在");
+
                 } else {
                     shareImage = new UMImage(mActivity, imgFile2);
                 }

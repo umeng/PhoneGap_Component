@@ -5,15 +5,15 @@
         <param name="onload" value="true" />
     </feature>
     <plugins>
-        <plugin name="AnalyticsSDK">
+        <feature name="AnalyticsSDK">
             <param name="android-package" value="com.umeng.plugin.AnalyticsSDK" />
-        </plugin>
-        <plugin name="PushSDK">
+        </feature>
+        <feature name="PushSDK">
             <param name="android-package" value="com.umeng.plugin.PushSDK" />
-        </plugin>
-        <plugin name="SocialSDK">
+        </feature>
+        <feature name="SocialSDK">
             <param name="android-package" value="com.umeng.plugin.SocialSDK" />
-        </plugin>
+        </feature>
     </plugins>
     <name>PhoneGap_Component</name>
     <description>
