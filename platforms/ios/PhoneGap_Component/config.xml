@@ -15,6 +15,11 @@
         <param name="ios-package" value="CDVGestureHandler" />
         <param name="onload" value="true" />
     </feature>
+    <plugins>
+        <feature name="Umeng">
+            <param name="ios-package" value="UMAnalyticsModule" />
+        </feature>
+    </plugins>
     <name>PhoneGap_Component</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

@@ -27,11 +27,16 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import <UMCommon/UMCommon.h>
+#import <UMAnalytics/MobClick.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
+    [UMConfigure setLogEnabled:YES];    // debug: only for console log, must be remove in release version
+    [UMConfigure initWithAppkey:@"58edd022f29d9826f000139e" channel:@"App Store"];
+    [MobClick setScenarioType:E_UM_DPLUS|E_UM_GAME];
     self.viewController = [[MainViewController alloc] init];
     return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
