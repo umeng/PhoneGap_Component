@@ -242,6 +242,7 @@ public class AnalyticsSDK extends CordovaPlugin {
             return true;
         } else if (action.equals("track")) {
             String eventName = args.getString(0);
+            Log.d("UMPlugin", "track="+eventName);
             UMADplus.track(mContext, eventName);
             return true;
         } else if (action.equals("trackWithProperty")) {

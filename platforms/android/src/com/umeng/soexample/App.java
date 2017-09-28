@@ -15,6 +15,7 @@ import com.umeng.message.UmengMessageHandler;
 import com.umeng.message.UmengNotificationClickHandler;
 import com.umeng.message.common.UmLog;
 import com.umeng.message.entity.UMessage;
+import com.umeng.plugin.PGCommonSDK;
 import com.umeng.socialize.PlatformConfig;
 
 public class App extends Application {
@@ -34,9 +35,9 @@ public class App extends Application {
 	    @Override
 	    public void onCreate() {
 	        super.onCreate();
-	        Log.e("cocos2d-x","Application onCreate");
-	        UMConfigure.setLogEnabled(true);
-	        UMConfigure.init(this, "59892f08310c9307b60023d0", "Umeng", UMConfigure.DEVICE_TYPE_PHONE,
+
+	        PGCommonSDK.setLogEnabled(true);
+			PGCommonSDK.init(this, "59892f08310c9307b60023d0", "Umeng", UMConfigure.DEVICE_TYPE_PHONE,
 	            "669c30a9584623e70e8cd01b0381dcb4");
 	        initUpush();
 	    }

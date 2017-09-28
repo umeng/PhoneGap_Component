@@ -112,10 +112,10 @@
        onclick="MobclickAgent.unregisterSuperProperty('name')" />
 <br />
 <input type="button" value="getSuperProperty"
-       onclick="MobclickAgent.getSuperProperty(getSuperProperty,'age')" />
+       onclick="MobclickAgent.getSuperProperty(function(r){alert('' +r);},'age')" />
 <br />
 <input type="button" value="getSuperProperties"
-       onclick="MobclickAgent.getSuperProperties(getSuperProperties)" />
+       onclick="MobclickAgent.getSuperProperties(function(r){alert('' +r);})" />
 <br />
 <input type="button" value="clearSuperProperties"
        onclick="MobclickAgent.clearSuperProperties()" />

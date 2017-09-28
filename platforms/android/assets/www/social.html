@@ -42,10 +42,16 @@
     <script type="text/javascript">
 	function onLoad() {
 	}
+function displayjson(jsonObj) {
+    var jStr = "{ ";
+    for(var item in jsonObj){
 
-		function gotoBack() {
-		window.location.href='index.html';
-	}
+        jStr += "'"+item+"':'"+jsonObj[item]+"',";
+    }
+        jStr += " }";
+       alert(jStr);
+}
+
 </script>
 
 </head>
@@ -53,7 +59,9 @@
 <body onload="onLoad()">
 
 
-<br />
+<br />	function gotoBack() {
+window.location.href='index.html';
+}
 <input type="button" value="分享文本"
        onclick="SocialAgent.directShare( function(r){alert('' +r);}, 'text share','','','',2)" />
 
@@ -78,12 +86,12 @@
 <br />
 <br />
 <input type="button" value="授权"
-       onclick="SocialAgent.auth( function(r){alert('' +r);},0)" />
+       onclick="SocialAgent.auth( function(r){displayjson(r);},0)" />
 <br />
 <br />
 <br />
 <input type="button" value="获取用户资料"
-       onclick="SocialAgent.getInfo( function(r){alert('' +r);},0)" />
+       onclick="SocialAgent.getInfo( function(r){displayjson(r);},0)" />
 <br />
 
 <br />
