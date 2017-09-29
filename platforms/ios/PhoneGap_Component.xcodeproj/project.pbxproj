@@ -46,6 +46,7 @@
 		63391ADE1F7B456400CFFCA0 /* UMSocialSDKPromptResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 63391AC11F7B456300CFFCA0 /* UMSocialSDKPromptResources.bundle */; };
 		63391ADF1F7B456400CFFCA0 /* UMSocialSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 63391AC31F7B456300CFFCA0 /* UMSocialSDKResources.bundle */; };
 		63391AE01F7B456400CFFCA0 /* UShareUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63391AC41F7B456300CFFCA0 /* UShareUI.framework */; };
+		63391B0B1F7E5DB500CFFCA0 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 63391B091F7E5DB500CFFCA0 /* TwitterKitResources.bundle */; };
 		6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */; };
 		8300A81E1F7B3E46009A6016 /* UMAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8300A8191F7B3E45009A6016 /* UMAnalytics.framework */; };
 		8300A81F1F7B3E46009A6016 /* UMCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8300A81D1F7B3E45009A6016 /* UMCommon.framework */; };
@@ -149,6 +150,7 @@
 		63391AC11F7B456300CFFCA0 /* UMSocialSDKPromptResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKPromptResources.bundle; sourceTree = "<group>"; };
 		63391AC31F7B456300CFFCA0 /* UMSocialSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResources.bundle; sourceTree = "<group>"; };
 		63391AC41F7B456300CFFCA0 /* UShareUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UShareUI.framework; sourceTree = "<group>"; };
+		63391B091F7E5DB500CFFCA0 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/TwitterKitResources.bundle; sourceTree = "<group>"; };
 		6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CDVLaunchScreen.storyboard; path = PhoneGap_Component/CDVLaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		8300A8191F7B3E45009A6016 /* UMAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMAnalytics.framework; path = PhoneGap_Component/Plugins/Umeng/UMAnalytics.framework; sourceTree = "<group>"; };
 		8300A81D1F7B3E45009A6016 /* UMCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMCommon.framework; path = PhoneGap_Component/Plugins/Umeng/UMCommon.framework; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 		63391AAE1F7B456300CFFCA0 /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				63391B091F7E5DB500CFFCA0 /* TwitterKitResources.bundle */,
 				63391AAF1F7B456300CFFCA0 /* Fabric.framework */,
 				63391AB01F7B456300CFFCA0 /* libSocialTwitter.a */,
 				63391AB11F7B456300CFFCA0 /* TwitterCore.framework */,
@@ -575,6 +578,7 @@
 				0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */,
 				63391ADF1F7B456400CFFCA0 /* UMSocialSDKResources.bundle in Resources */,
 				63391ADA1F7B456400CFFCA0 /* README.txt in Resources */,
+				63391B0B1F7E5DB500CFFCA0 /* TwitterKitResources.bundle in Resources */,
 				6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
