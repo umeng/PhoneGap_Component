@@ -316,12 +316,12 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				8300A8201F7B3E53009A6016 /* UMAnalyticsModule.h */,
+				8300A8211F7B3E53009A6016 /* UMAnalyticsModule.m */,
 				63391B271F7F9CAA00CFFCA0 /* UMPushModule.h */,
 				63391B281F7F9CAA00CFFCA0 /* UMPushModule.m */,
 				63391B251F7F9CAA00CFFCA0 /* UMShareModule.h */,
 				63391B261F7F9CAA00CFFCA0 /* UMShareModule.m */,
-				8300A8201F7B3E53009A6016 /* UMAnalyticsModule.h */,
-				8300A8211F7B3E53009A6016 /* UMAnalyticsModule.m */,
 			);
 			name = Plugins;
 			path = PhoneGap_Component/Plugins;
