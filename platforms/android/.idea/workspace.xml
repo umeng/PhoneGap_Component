@@ -39,8 +39,8 @@
       <file leaf-file-name="push.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/www/push.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+            <state relative-caret-position="165">
+              <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -97,8 +97,8 @@
       <file leaf-file-name="social.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/www/social.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1470">
-              <caret line="98" column="6" selection-start-line="64" selection-start-column="0" selection-end-line="98" selection-end-column="6" />
+            <state relative-caret-position="247">
+              <caret line="55" column="1" selection-start-line="55" selection-start-column="1" selection-end-line="55" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -3502,13 +3502,13 @@
         <option value="$PROJECT_DIR$/platform_www/plugins/umeng/www/socialsdk.js" />
         <option value="$PROJECT_DIR$/src/com/umeng/plugin/SocialSDK.java" />
         <option value="$PROJECT_DIR$/res/xml/config.xml" />
-        <option value="$PROJECT_DIR$/assets/www/social.html" />
         <option value="$PROJECT_DIR$/assets/www/analytics.html" />
         <option value="$PROJECT_DIR$/src/com/umeng/soexample/MainActivity.java" />
         <option value="$PROJECT_DIR$/src/com/umeng/plugin/AnalyticsSDK.java" />
         <option value="$PROJECT_DIR$/src/com/umeng/plugin/PGCommonSDK.java" />
         <option value="$PROJECT_DIR$/src/com/umeng/soexample/App.java" />
         <option value="$PROJECT_DIR$/assets/www/push.html" />
+        <option value="$PROJECT_DIR$/assets/www/social.html" />
       </list>
     </option>
   </component>
@@ -3680,7 +3680,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="show.do.not.ask.upgrade.gradle.plugin" value="2.2.3" />
-    <property name="device.picker.selection" value="Nexus_6P_API_23" />
+    <property name="device.picker.selection" value="84B5T15A29003774" />
     <property name="android.project.structure.last.selected" value="android" />
     <property name="android.project.structure.proportion" value="0.15" />
   </component>
@@ -4573,16 +4573,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/www/social.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1470">
-          <caret line="98" column="6" selection-start-line="64" selection-start-column="0" selection-end-line="98" selection-end-column="6" />
+        <state relative-caret-position="247">
+          <caret line="55" column="1" selection-start-line="55" selection-start-column="1" selection-end-line="55" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/www/push.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+        <state relative-caret-position="165">
+          <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
           <folding />
         </state>
       </provider>

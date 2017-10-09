@@ -51,7 +51,9 @@ function displayjson(jsonObj) {
         jStr += " }";
        alert(jStr);
 }
-
+	function gotoBack() {
+window.location.href='index.html';
+}
 </script>
 
 </head>
@@ -59,9 +61,7 @@ function displayjson(jsonObj) {
 <body onload="onLoad()">
 
 
-<br />	function gotoBack() {
-window.location.href='index.html';
-}
+<br />
 <input type="button" value="分享文本"
        onclick="SocialAgent.directShare( function(r){alert('' +r);}, 'text share','','','',2)" />
 
