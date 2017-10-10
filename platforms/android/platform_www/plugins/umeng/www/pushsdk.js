@@ -12,7 +12,7 @@ cordova.define("Umeng.Push", function(require, exports, module) {
         delTag : function(callBack,tag) {
                cordova.exec(callBack, null, "PushSDK","delTag", [tag]);
         },
-        listTag : function(callBack,tag) {
+        listTag : function(callBack) {
                cordova.exec(callBack, null, "PushSDK","listTag", []);
         },
         addAlias : function(callBack,alias,type) {

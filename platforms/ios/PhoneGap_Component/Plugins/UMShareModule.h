@@ -10,4 +10,5 @@
 
 @interface UMShareModule : CDVPlugin
 
+- (void)getInfo:(CDVInvokedUrlCommand*)command;
 @end

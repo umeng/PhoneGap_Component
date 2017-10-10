@@ -9,5 +9,10 @@
 #import <Cordova/CDV.h>
 
 @interface UMPushModule : CDVPlugin
-
+- (void)addTag:(CDVInvokedUrlCommand*)command;
+- (void)delTag:(CDVInvokedUrlCommand*)command;
+- (void)listTag:(CDVInvokedUrlCommand*)command;
+- (void)addAlias:(CDVInvokedUrlCommand*)command;
+- (void)delAlias:(CDVInvokedUrlCommand*)command;
+- (void)setAlias:(CDVInvokedUrlCommand*)command;
 @end

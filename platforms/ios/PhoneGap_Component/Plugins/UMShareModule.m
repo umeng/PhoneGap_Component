@@ -126,24 +126,21 @@
     
 }
 
-- (void)share:(CDVInvokedUrlCommand*)command
+- (void)directShare:(CDVInvokedUrlCommand*)command
 {
     NSArray *args = command.arguments;
-    if (args.count != 6) {
-        return;
-    }
+  
+    UMSocialPlatformType platform = [args[4] integerValue];
+    NSString *text = args[0];
+    NSString *icon = args[1];
+    NSString *link = args[2];
+    NSString *title = args[3];
     
-    UMSocialPlatformType platform = [args[0] integerValue];
-    NSString *text = args[1];
-    NSString *icon = args[2];
-    NSString *link = args[3];
-    NSString *title = args[4];
-    
-    NSString *callback = args[5];
+
     
     UMSocialPlatformType plf = [self platformType:platform];
     if (plf == UMSocialPlatformType_UnKnown) {
-        [self handleResult:-1 message:@"invalid platform" result:nil callbackFunction:callback command:command];
+        [self handleShareResult:-1  result:nil command:command];
         return;
     }
     
@@ -155,25 +152,25 @@
             }if (!msg) {
                 msg = @"share failed";
             }
-            [self handleShareResult:error.code message:msg result:nil callbackFunction:callback command:command];
+            [self handleShareResult:error.code  result:nil  command:command];
             
         } else {
-            [self handleShareResult:0 message:nil result:nil callbackFunction:callback command:command];
+            [self handleShareResult:0  result:nil  command:command];
         }
     }];
     
 }
 
-- (void)shareBoard:(CDVInvokedUrlCommand*)command
+- (void)openShare:(CDVInvokedUrlCommand*)command
 {
     NSArray *args = command.arguments;
-    NSArray *platforms = args[0];
-    NSString *text = args[1];
-    NSString *icon = args[2];
-    NSString *link = args[3];
-    NSString *title = args[4];
+    NSArray *platforms = args[4];
+    NSString *text = args[0];
+    NSString *icon = args[1];
+    NSString *link = args[2];
+    NSString *title = args[3];
     
-    NSString *callback = args[5];
+    
     
     NSMutableArray *plfs = [NSMutableArray array];
     for (NSNumber *plf in platforms) {
@@ -191,28 +188,32 @@
                 }if (!msg) {
                     msg = @"share failed";
                 }
-                [self handleShareResult:error.code message:msg result:nil callbackFunction:callback command:command];
+                int stcode = 0;
+                if (error.code == 2009) {
+                    stcode = -1;
+                }
+                CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:stcode];
+                [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
                 
             } else {
-                [self handleShareResult:0 message:nil result:nil callbackFunction:callback command:command];
+                CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:200];
+                [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
             }
         }];
     }];
 }
 
 
-- (void)getUserInfo:(CDVInvokedUrlCommand*)command
+- (void)getInfo:(CDVInvokedUrlCommand*)command
 {
+    NSLog(@"11");
     NSArray *args = command.arguments;
-    if (args.count != 2)
-        return;
-    
     UMSocialPlatformType platform = [args[0] integerValue];
-    NSString *callback = args[1];
+   
     
     UMSocialPlatformType plf = [self platformType:platform];
     if (plf == UMSocialPlatformType_UnKnown) {
-        [self handleResult:-1 message:@"invalid platform" result:nil callbackFunction:callback command:command];
+        [self handleResult:-1 message:@"invalid platform" result:nil  command:command];
         return;
     }
     
@@ -224,7 +225,7 @@
             }if (!msg) {
                 msg = @"share failed";
             }
-            [self handleResult:error.code message:msg result:nil callbackFunction:callback command:command];
+            [self handleResult:error.code message:msg result:nil command:command];
             
         } else {
             UMSocialUserInfoResponse *authInfo = result;
@@ -246,43 +247,51 @@
             retDict[@"province"] = originInfo[@"province"];
             retDict[@"country"] = originInfo[@"country"];
             
-            [self handleResult:0 message:nil result:retDict callbackFunction:callback command:command];
+            [self handleResult:0 message:nil result:retDict  command:command];
         }
     }];
 }
 
-- (void)handleResult:(NSInteger)retCode message:(NSString *)message result:(NSDictionary *)result callbackFunction:(NSString *)function command:(CDVInvokedUrlCommand*)command
+- (void)handleResult:(NSInteger)retCode message:(NSString *)message result:(NSDictionary *)result command:(CDVInvokedUrlCommand*)command
 {
-    if (function.length == 0) {
+    if (retCode != 0) {
+        NSDictionary *dict;
+        if (retCode == 2009) {
+             dict = [NSDictionary dictionaryWithObjectsAndKeys:@"cancel",@"error", nil];
+            
+        }else{
+             dict = [NSDictionary dictionaryWithObjectsAndKeys:message,@"error", nil];
+        }
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
         return;
+    }else{
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:result];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
-    NSString *jsonString = @"";
-    if (result) {
-        NSData *data = [NSJSONSerialization dataWithJSONObject:result options:0 error:nil];
-        jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    }
-    NSString *msg = message?:@"";
-    NSString *callBack = [NSString stringWithFormat:@"%@(%ld,'%@\')", function, retCode, jsonString];
+  
 
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:callBack];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+
+    
+
+   
 }
 
-- (void)handleShareResult:(NSInteger)retCode message:(NSString *)message result:(NSDictionary *)result callbackFunction:(NSString *)function command:(CDVInvokedUrlCommand*)command
+- (void)handleShareResult:(NSInteger)retCode  result:(NSDictionary *)result  command:(CDVInvokedUrlCommand*)command
 {
-    if (function.length == 0) {
+    if (retCode != 0) {
+        int stcode = 0;
+        if (retCode == 2009) {
+            stcode = -1;
+            
+        }
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:stcode];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
         return;
+    }else{
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:0];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
-    NSString *jsonString = @"";
-    if (result) {
-        NSData *data = [NSJSONSerialization dataWithJSONObject:result options:0 error:nil];
-        jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    }
-    NSString *msg = message?:@"";
-    NSString *callBack = [NSString stringWithFormat:@"%@(%ld)", function, retCode];
-    
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:callBack];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 @end

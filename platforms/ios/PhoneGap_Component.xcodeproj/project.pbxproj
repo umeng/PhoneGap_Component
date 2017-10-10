@@ -51,6 +51,21 @@
 		63391B291F7F9CAB00CFFCA0 /* UMShareModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 63391B261F7F9CAA00CFFCA0 /* UMShareModule.m */; };
 		63391B2A1F7F9CAB00CFFCA0 /* UMPushModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 63391B281F7F9CAA00CFFCA0 /* UMPushModule.m */; };
 		6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */; };
+		7B1F045B1F8CEB11007A1B05 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 7B1F04451F8CEB10007A1B05 /* index.html */; };
+		7B1F045C1F8CEB11007A1B05 /* cordova.js in Resources */ = {isa = PBXBuildFile; fileRef = 7B1F04461F8CEB10007A1B05 /* cordova.js */; };
+		7B1F045D1F8CEB11007A1B05 /* index.css in Resources */ = {isa = PBXBuildFile; fileRef = 7B1F04481F8CEB10007A1B05 /* index.css */; };
+		7B1F045E1F8CEB11007A1B05 /* analyticssdk.js in Resources */ = {isa = PBXBuildFile; fileRef = 7B1F044C1F8CEB10007A1B05 /* analyticssdk.js */; };
+		7B1F045F1F8CEB11007A1B05 /* pushsdk.js in Resources */ = {isa = PBXBuildFile; fileRef = 7B1F044D1F8CEB10007A1B05 /* pushsdk.js */; };
+		7B1F04601F8CEB11007A1B05 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 7B1F044E1F8CEB10007A1B05 /* index.js */; };
+		7B1F04611F8CEB11007A1B05 /* socialsdk.js in Resources */ = {isa = PBXBuildFile; fileRef = 7B1F044F1F8CEB10007A1B05 /* socialsdk.js */; };
+		7B1F04621F8CEB11007A1B05 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 7B1F04511F8CEB10007A1B05 /* index.js */; };
+		7B1F04631F8CEB11007A1B05 /* push.html in Resources */ = {isa = PBXBuildFile; fileRef = 7B1F04521F8CEB10007A1B05 /* push.html */; };
+		7B1F04641F8CEB11007A1B05 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B1F04541F8CEB10007A1B05 /* logo.png */; };
+		7B1F04651F8CEB11007A1B05 /* social.html in Resources */ = {isa = PBXBuildFile; fileRef = 7B1F04551F8CEB10007A1B05 /* social.html */; };
+		7B1F04661F8CEB11007A1B05 /* exec.js in Resources */ = {isa = PBXBuildFile; fileRef = 7B1F04571F8CEB10007A1B05 /* exec.js */; };
+		7B1F04671F8CEB11007A1B05 /* platform.js in Resources */ = {isa = PBXBuildFile; fileRef = 7B1F04581F8CEB10007A1B05 /* platform.js */; };
+		7B1F04681F8CEB11007A1B05 /* analytics.html in Resources */ = {isa = PBXBuildFile; fileRef = 7B1F04591F8CEB10007A1B05 /* analytics.html */; };
+		7B1F04691F8CEB11007A1B05 /* cordova_plugins.js in Resources */ = {isa = PBXBuildFile; fileRef = 7B1F045A1F8CEB10007A1B05 /* cordova_plugins.js */; };
 		8300A81E1F7B3E46009A6016 /* UMAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8300A8191F7B3E45009A6016 /* UMAnalytics.framework */; };
 		8300A81F1F7B3E46009A6016 /* UMCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8300A81D1F7B3E45009A6016 /* UMCommon.framework */; };
 		8300A8221F7B3E53009A6016 /* UMAnalyticsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8300A8211F7B3E53009A6016 /* UMAnalyticsModule.m */; };
@@ -90,7 +105,6 @@
 		1D6058910D05DD3D006BFB54 /* PhoneGap_Component.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhoneGap_Component.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
-		301BF56E109A69640062928A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../android/assets/www; sourceTree = SOURCE_ROOT; };
 		302D95EE14D2391D003F00A1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		302D95EF14D2391D003F00A1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		302D95F014D2391D003F00A1 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
@@ -159,6 +173,21 @@
 		63391B271F7F9CAA00CFFCA0 /* UMPushModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMPushModule.h; sourceTree = "<group>"; };
 		63391B281F7F9CAA00CFFCA0 /* UMPushModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMPushModule.m; sourceTree = "<group>"; };
 		6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CDVLaunchScreen.storyboard; path = PhoneGap_Component/CDVLaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		7B1F04451F8CEB10007A1B05 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		7B1F04461F8CEB10007A1B05 /* cordova.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = cordova.js; sourceTree = "<group>"; };
+		7B1F04481F8CEB10007A1B05 /* index.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = index.css; sourceTree = "<group>"; };
+		7B1F044C1F8CEB10007A1B05 /* analyticssdk.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = analyticssdk.js; sourceTree = "<group>"; };
+		7B1F044D1F8CEB10007A1B05 /* pushsdk.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = pushsdk.js; sourceTree = "<group>"; };
+		7B1F044E1F8CEB10007A1B05 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
+		7B1F044F1F8CEB10007A1B05 /* socialsdk.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = socialsdk.js; sourceTree = "<group>"; };
+		7B1F04511F8CEB10007A1B05 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
+		7B1F04521F8CEB10007A1B05 /* push.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = push.html; sourceTree = "<group>"; };
+		7B1F04541F8CEB10007A1B05 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		7B1F04551F8CEB10007A1B05 /* social.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = social.html; sourceTree = "<group>"; };
+		7B1F04571F8CEB10007A1B05 /* exec.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = exec.js; sourceTree = "<group>"; };
+		7B1F04581F8CEB10007A1B05 /* platform.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = platform.js; sourceTree = "<group>"; };
+		7B1F04591F8CEB10007A1B05 /* analytics.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = analytics.html; sourceTree = "<group>"; };
+		7B1F045A1F8CEB10007A1B05 /* cordova_plugins.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = cordova_plugins.js; sourceTree = "<group>"; };
 		8300A8191F7B3E45009A6016 /* UMAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMAnalytics.framework; path = PhoneGap_Component/Plugins/Umeng/UMAnalytics.framework; sourceTree = "<group>"; };
 		8300A81D1F7B3E45009A6016 /* UMCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMCommon.framework; path = PhoneGap_Component/Plugins/Umeng/UMCommon.framework; sourceTree = "<group>"; };
 		8300A8201F7B3E53009A6016 /* UMAnalyticsModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UMAnalyticsModule.h; path = Umeng/UMAnalyticsModule.h; sourceTree = "<group>"; };
@@ -489,11 +518,89 @@
 			path = UMSocialUI;
 			sourceTree = "<group>";
 		};
+		7B1F04441F8CEB10007A1B05 /* www */ = {
+			isa = PBXGroup;
+			children = (
+				7B1F04451F8CEB10007A1B05 /* index.html */,
+				7B1F04461F8CEB10007A1B05 /* cordova.js */,
+				7B1F04471F8CEB10007A1B05 /* css */,
+				7B1F04491F8CEB10007A1B05 /* plugins */,
+				7B1F04501F8CEB10007A1B05 /* js */,
+				7B1F04521F8CEB10007A1B05 /* push.html */,
+				7B1F04531F8CEB10007A1B05 /* img */,
+				7B1F04551F8CEB10007A1B05 /* social.html */,
+				7B1F04561F8CEB10007A1B05 /* cordova-js-src */,
+				7B1F04591F8CEB10007A1B05 /* analytics.html */,
+				7B1F045A1F8CEB10007A1B05 /* cordova_plugins.js */,
+			);
+			path = www;
+			sourceTree = "<group>";
+		};
+		7B1F04471F8CEB10007A1B05 /* css */ = {
+			isa = PBXGroup;
+			children = (
+				7B1F04481F8CEB10007A1B05 /* index.css */,
+			);
+			path = css;
+			sourceTree = "<group>";
+		};
+		7B1F04491F8CEB10007A1B05 /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				7B1F044A1F8CEB10007A1B05 /* umeng */,
+			);
+			path = plugins;
+			sourceTree = "<group>";
+		};
+		7B1F044A1F8CEB10007A1B05 /* umeng */ = {
+			isa = PBXGroup;
+			children = (
+				7B1F044B1F8CEB10007A1B05 /* www */,
+			);
+			path = umeng;
+			sourceTree = "<group>";
+		};
+		7B1F044B1F8CEB10007A1B05 /* www */ = {
+			isa = PBXGroup;
+			children = (
+				7B1F044C1F8CEB10007A1B05 /* analyticssdk.js */,
+				7B1F044D1F8CEB10007A1B05 /* pushsdk.js */,
+				7B1F044E1F8CEB10007A1B05 /* index.js */,
+				7B1F044F1F8CEB10007A1B05 /* socialsdk.js */,
+			);
+			path = www;
+			sourceTree = "<group>";
+		};
+		7B1F04501F8CEB10007A1B05 /* js */ = {
+			isa = PBXGroup;
+			children = (
+				7B1F04511F8CEB10007A1B05 /* index.js */,
+			);
+			path = js;
+			sourceTree = "<group>";
+		};
+		7B1F04531F8CEB10007A1B05 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				7B1F04541F8CEB10007A1B05 /* logo.png */,
+			);
+			path = img;
+			sourceTree = "<group>";
+		};
+		7B1F04561F8CEB10007A1B05 /* cordova-js-src */ = {
+			isa = PBXGroup;
+			children = (
+				7B1F04571F8CEB10007A1B05 /* exec.js */,
+				7B1F04581F8CEB10007A1B05 /* platform.js */,
+			);
+			path = "cordova-js-src";
+			sourceTree = "<group>";
+		};
 		EB87FDF11871DA420020F90C /* Staging */ = {
 			isa = PBXGroup;
 			children = (
+				7B1F04441F8CEB10007A1B05 /* www */,
 				F840E1F0165FE0F500CFE078 /* config.xml */,
-				301BF56E109A69640062928A /* www */,
 			);
 			name = Staging;
 			sourceTree = "<group>";
@@ -578,16 +685,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B1F045E1F8CEB11007A1B05 /* analyticssdk.js in Resources */,
+				7B1F04681F8CEB11007A1B05 /* analytics.html in Resources */,
 				63391ACF1F7B456400CFFCA0 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				7B1F04691F8CEB11007A1B05 /* cordova_plugins.js in Resources */,
+				7B1F045B1F8CEB11007A1B05 /* index.html in Resources */,
 				302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */,
 				63391AD21F7B456400CFFCA0 /* WeiboSDK.bundle in Resources */,
+				7B1F04671F8CEB11007A1B05 /* platform.js in Resources */,
+				7B1F04611F8CEB11007A1B05 /* socialsdk.js in Resources */,
+				7B1F04651F8CEB11007A1B05 /* social.html in Resources */,
 				63391ADE1F7B456400CFFCA0 /* UMSocialSDKPromptResources.bundle in Resources */,
 				0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */,
+				7B1F045F1F8CEB11007A1B05 /* pushsdk.js in Resources */,
+				7B1F04621F8CEB11007A1B05 /* index.js in Resources */,
 				63391ADF1F7B456400CFFCA0 /* UMSocialSDKResources.bundle in Resources */,
+				7B1F045C1F8CEB11007A1B05 /* cordova.js in Resources */,
 				63391ADA1F7B456400CFFCA0 /* README.txt in Resources */,
+				7B1F04601F8CEB11007A1B05 /* index.js in Resources */,
+				7B1F045D1F8CEB11007A1B05 /* index.css in Resources */,
+				7B1F04631F8CEB11007A1B05 /* push.html in Resources */,
+				7B1F04641F8CEB11007A1B05 /* logo.png in Resources */,
 				63391B0B1F7E5DB500CFFCA0 /* TwitterKitResources.bundle in Resources */,
 				6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */,
 				63391B241F7F8D1800CFFCA0 /* config.xml in Resources */,
+				7B1F04661F8CEB11007A1B05 /* exec.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

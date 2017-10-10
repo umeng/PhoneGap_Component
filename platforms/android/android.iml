@@ -57,13 +57,6 @@
       <sourceFolder url="file://$MODULE_DIR$/assets" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/assets" type="java-test-resource" />
@@ -71,6 +64,13 @@
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/shaders" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/assets" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
@@ -98,19 +98,5 @@
     <orderEntry type="module" module-name="push" exported="" />
     <orderEntry type="module" module-name="CordovaLib" exported="" />
     <orderEntry type="module" module-name="social" exported="" />
-    <orderEntry type="library" exported="" name="alicloud-android-sdk-httpdns-1.0.7" level="project" />
-    <orderEntry type="library" exported="" name="umeng-push-3.3.1" level="project" />
-    <orderEntry type="library" exported="" name="SocialSDK_twitter" level="project" />
-    <orderEntry type="library" exported="" name="SocialSDK_Sina_Simplify" level="project" />
-    <orderEntry type="library" exported="" name="SocialSDK_WeChat_Simplify" level="project" />
-    <orderEntry type="library" exported="" name="android-support-v4" level="project" />
-    <orderEntry type="library" exported="" name="SocialSDK_facebook" level="project" />
-    <orderEntry type="library" exported="" name="umeng_social_net" level="project" />
-    <orderEntry type="library" exported="" name="umeng_social_shareboard" level="project" />
-    <orderEntry type="library" exported="" name="umeng_social_api" level="project" />
-    <orderEntry type="library" exported="" name="SocialSDK_QQ_Simplify" level="project" />
-    <orderEntry type="library" exported="" name="umeng_shareboard_widget" level="project" />
-    <orderEntry type="library" exported="" name="umeng_social_shareview" level="project" />
-    <orderEntry type="library" exported="" name="umeng_social_tool" level="project" />
   </component>
 </module>

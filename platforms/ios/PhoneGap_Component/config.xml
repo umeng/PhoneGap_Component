@@ -16,8 +16,14 @@
         <param name="onload" value="true" />
     </feature>
     <plugins>
-        <feature name="Umeng">
+        <feature name="AnalyticsSDK">
             <param name="ios-package" value="UMAnalyticsModule" />
+        </feature>
+        <feature name="PushSDK">
+            <param name="ios-package" value="UMPushModule" />
+        </feature>
+        <feature name="SocialSDK">
+            <param name="ios-package" value="UMShareModule" />
         </feature>
     </plugins>
     <name>PhoneGap_Component</name>
