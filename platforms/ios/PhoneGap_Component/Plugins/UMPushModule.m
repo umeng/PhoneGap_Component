@@ -13,7 +13,7 @@
     NSLog(@"22222");
    NSString *tag = [command.arguments objectAtIndex:0];
     [UMessage addTags:tag response:^(id  _Nonnull responseObject, NSInteger remain, NSError * _Nonnull error) {
-        int code = -1;
+        long code = -1;
         int remainnum = 0;
         if (error) {
             code = error.code;
@@ -31,7 +31,7 @@
                 }
             }
         }
-        NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"stcode",code,@"remain",remainnum, nil];
+        NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithLong:code],@"stcode",[NSNumber numberWithInt:remainnum],@"remain", nil];
         CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
         
@@ -41,7 +41,7 @@
 - (void)delTag:(CDVInvokedUrlCommand*)command{
     NSString *tag = [command.arguments objectAtIndex:0];
     [UMessage deleteTags:tag response:^(id  _Nonnull responseObject, NSInteger remain, NSError * _Nonnull error) {
-        int code = -1;
+        long code = -1;
         int remainnum = 0;
         if (error) {
             code = error.code;
@@ -59,7 +59,7 @@
                 }
             }
         }
-        NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"stcode",code,@"remain",remainnum, nil];
+        NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithLong: code],@"stcode",[NSNumber numberWithInt:remainnum],@"remain", nil];
         CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
         
