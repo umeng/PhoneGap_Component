@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };
+		179D3A911F8CF7DE00F2E1AC /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 179D3A8F1F8CF7DE00F2E1AC /* UserNotifications.framework */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; };
@@ -101,6 +102,8 @@
 
 /* Begin PBXFileReference section */
 		0207DA571B56EA530066E2B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = PhoneGap_Component/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		179B79041F8DF30100ED9BE9 /* PhoneGap_Component.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = PhoneGap_Component.entitlements; path = PhoneGap_Component/PhoneGap_Component.entitlements; sourceTree = "<group>"; };
+		179D3A8F1F8CF7DE00F2E1AC /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* PhoneGap_Component.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhoneGap_Component.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,6 +211,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				179D3A911F8CF7DE00F2E1AC /* UserNotifications.framework in Frameworks */,
 				63391ADD1F7B456400CFFCA0 /* libUMSocialLog.a in Frameworks */,
 				63391ACD1F7B456400CFFCA0 /* libSocialQQ.a in Frameworks */,
 				63391AE01F7B456400CFFCA0 /* UShareUI.framework in Frameworks */,
@@ -272,6 +276,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				179B79041F8DF30100ED9BE9 /* PhoneGap_Component.entitlements */,
 				EB87FDF11871DA420020F90C /* Staging */,
 				301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
@@ -310,6 +315,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				179D3A8F1F8CF7DE00F2E1AC /* UserNotifications.framework */,
 				63391A851F7B456300CFFCA0 /* UMPush.framework */,
 				63391A861F7B456300CFFCA0 /* UMShare */,
 				633919B81F7B426100CFFCA0 /* MessageUI.framework */,
@@ -643,6 +649,11 @@
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = 486K7NX823;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -773,6 +784,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = PhoneGap_Component/PhoneGap_Component.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 486K7NX823;
@@ -824,6 +836,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = PhoneGap_Component/PhoneGap_Component.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = YES;

@@ -32,7 +32,9 @@
 #import <UMShare/UMShare.h>
 #import <UMCommon/UMCommon.h>
 #import <UMAnalytics/MobClick.h>
-
+#import <UserNotifications/UserNotifications.h>
+@interface AppDelegate()<UNUserNotificationCenterDelegate>
+@end
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
