@@ -26,6 +26,7 @@
 //
 
 #import "AppDelegate.h"
+#import "UMCommonModule.h"
 #import "MainViewController.h"
 #import <UMPush/UMessage.h>
 #import <UMShare/UMShare.h>
@@ -37,7 +38,7 @@
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
     [UMConfigure setLogEnabled:YES];    // debug: only for console log, must be remove in release version
-    [UMConfigure initWithAppkey:@"58edd022f29d9826f000139e" channel:@"App Store"];
+    [UMCommonModule initWithAppkey:@"58edd022f29d9826f000139e" channel:@"App Store"];
     [MobClick setScenarioType:E_UM_DPLUS|E_UM_GAME];
     
     /* Share init */

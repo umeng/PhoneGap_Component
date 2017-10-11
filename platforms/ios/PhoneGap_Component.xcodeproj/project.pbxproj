@@ -66,6 +66,7 @@
 		7B1F04671F8CEB11007A1B05 /* platform.js in Resources */ = {isa = PBXBuildFile; fileRef = 7B1F04581F8CEB10007A1B05 /* platform.js */; };
 		7B1F04681F8CEB11007A1B05 /* analytics.html in Resources */ = {isa = PBXBuildFile; fileRef = 7B1F04591F8CEB10007A1B05 /* analytics.html */; };
 		7B1F04691F8CEB11007A1B05 /* cordova_plugins.js in Resources */ = {isa = PBXBuildFile; fileRef = 7B1F045A1F8CEB10007A1B05 /* cordova_plugins.js */; };
+		7B1F047F1F8E2224007A1B05 /* UMCommonModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B1F047E1F8E2224007A1B05 /* UMCommonModule.m */; };
 		8300A81E1F7B3E46009A6016 /* UMAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8300A8191F7B3E45009A6016 /* UMAnalytics.framework */; };
 		8300A81F1F7B3E46009A6016 /* UMCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8300A81D1F7B3E45009A6016 /* UMCommon.framework */; };
 		8300A8221F7B3E53009A6016 /* UMAnalyticsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8300A8211F7B3E53009A6016 /* UMAnalyticsModule.m */; };
@@ -188,6 +189,8 @@
 		7B1F04581F8CEB10007A1B05 /* platform.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = platform.js; sourceTree = "<group>"; };
 		7B1F04591F8CEB10007A1B05 /* analytics.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = analytics.html; sourceTree = "<group>"; };
 		7B1F045A1F8CEB10007A1B05 /* cordova_plugins.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = cordova_plugins.js; sourceTree = "<group>"; };
+		7B1F047D1F8E2224007A1B05 /* UMCommonModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMCommonModule.h; sourceTree = "<group>"; };
+		7B1F047E1F8E2224007A1B05 /* UMCommonModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMCommonModule.m; sourceTree = "<group>"; };
 		8300A8191F7B3E45009A6016 /* UMAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMAnalytics.framework; path = PhoneGap_Component/Plugins/Umeng/UMAnalytics.framework; sourceTree = "<group>"; };
 		8300A81D1F7B3E45009A6016 /* UMCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMCommon.framework; path = PhoneGap_Component/Plugins/Umeng/UMCommon.framework; sourceTree = "<group>"; };
 		8300A8201F7B3E53009A6016 /* UMAnalyticsModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UMAnalyticsModule.h; path = Umeng/UMAnalyticsModule.h; sourceTree = "<group>"; };
@@ -351,6 +354,8 @@
 				63391B281F7F9CAA00CFFCA0 /* UMPushModule.m */,
 				63391B251F7F9CAA00CFFCA0 /* UMShareModule.h */,
 				63391B261F7F9CAA00CFFCA0 /* UMShareModule.m */,
+				7B1F047D1F8E2224007A1B05 /* UMCommonModule.h */,
+				7B1F047E1F8E2224007A1B05 /* UMCommonModule.m */,
 			);
 			name = Plugins;
 			path = PhoneGap_Component/Plugins;
@@ -741,6 +746,7 @@
 				63391B291F7F9CAB00CFFCA0 /* UMShareModule.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
+				7B1F047F1F8E2224007A1B05 /* UMCommonModule.m in Sources */,
 				63391B2A1F7F9CAB00CFFCA0 /* UMPushModule.m in Sources */,
 				8300A8221F7B3E53009A6016 /* UMAnalyticsModule.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
