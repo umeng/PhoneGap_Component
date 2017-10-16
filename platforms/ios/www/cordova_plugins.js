@@ -4,7 +4,7 @@ module.exports = [
                   "file": "plugins/umeng/www/analyticssdk.js",
                   "id": "Umeng.Analytics",
                   "clobbers": [
-                               "MobclickAgent"
+                               "AnalyticsAgent"
                                ]
                   },
                   {

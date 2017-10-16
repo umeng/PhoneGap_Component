@@ -108,75 +108,81 @@ MobclickAgent.setScenarioType(this, EScenarioType.E_DUM_NORMAL);
 
 ```
 
-js部分首先需要使用`UMAnalytics.js`文件：
+js部分首先需要使用`analyticssdk.js`文件：
 
 
 ## 接口说明
 ### 自定义事件
-AnalyticsUtil.onEvent(eventId);
+```
+AnalyticsAgent.onEvent(eventId);
 
-AnalyticsUtil.onEventWithLable(eventId,eventLabel);
+AnalyticsAgent.onEventWithLable(eventId,eventLabel);
 
-AnalyticsUtil.onEventWithMap(eventId,eventData);
+AnalyticsAgent.onEventWithMap(eventId,eventData);
 
-AnalyticsUtil.onEventWithMapAndCount(eventId,eventData,eventNum);
-
+AnalyticsAgent.onEventWithMapAndCount(eventId,eventData,eventNum);
+```
 * eventId 为当前统计的事件ID
 * eventLabel 为分类标签
 * eventData 为当前事件的属性和取值（键值对），不能为空，如：{name:"umeng",sex:"man"}
 * eventNum 用户每次触发的数值的分布情况，如事件持续时间、每次付款金额等
 
 ### 账号的统计
-AnalyticsUtil.profileSignInWithPUID(puid);
-
+```
+AnalyticsAgent.profileSignInWithPUID(puid);
+```
 * puid 用户账号ID.长度小于64字节
 
-AnalyticsUtil.profileSignOff()；
-
+```
+AnalyticsAgent.profileSignOff()；
+```
  * 账号登出时需调用此接口，调用之后不再发送账号相关内容
 
 ### Dplus 统计
 #### track事件
-AnalyticsUtil.track(eventName);
+```
+AnalyticsAgent.track(eventName);
 
-AnalyticsUtil.trackWithMap(eventName, property);
-
+AnalyticsAgent.trackWithMap(eventName, property);
+```
 * eventName 事件名称
 * property 事件的自定义属性（可以包含多对“属性名-属性值”）,如：{name:"umeng",sex:"man"}
 
 #### 超级属性
-
-AnalyticsUtil.registerSuperProperty(property);
-
+```
+AnalyticsAgent.registerSuperProperty(property);
+```
 * property 事件的超级属性（可以包含多对“属性名-属性值”）,如：{name:"umeng",sex:"man"}
 
-AnalyticsUtil.clearSuperProperties();
-
+```
+AnalyticsAgent.clearSuperProperties();
+```
 * 清空所有超级属性
 
 #### 设置关注事件是否首次触发
-
-AnalyticsUtil.setFirstLaunchEvent(eventList);
-
+```
+AnalyticsAgent.setFirstLaunchEvent(eventList);
+```
 * eventList 只关注eventList前五个合法eventID.只要已经保存五个,此接口无效,如：["list1","list2","list3"]
 
 ### 游戏统计
 
 #### 关卡
-AnalyticsUtil.startLevel(level); //进入关卡
+```
+AnalyticsAgent.startLevel(level); //进入关卡
 
-AnalyticsUtil.failLevel(level); //通过关卡
+AnalyticsAgent.failLevel(level); //通过关卡
 
-AnalyticsUtil.finishLevel(level); //完成关卡
-
+AnalyticsAgent.finishLevel(level); //完成关卡
+```
 * level 关卡ID
 
 #### 充值
+```
+AnalyticsAgent.pay(cash, source, price);
 
-AnalyticsUtil.pay(cash, source, price);
-
-AnalyticsUtil.payWithItem(cash, source, item, amount, price);
-
+AnalyticsAgent.payWithItem(cash, source, item, amount, price);
+```
 * cash 真实币数量，>=0的数,最多只保存小数点后2位
 * source 支付渠道，1 ~ 99的整数, 其中1..20 是预定义含义,其余21-99需要在网站设置。
 * coin 虚拟币数量，大于等于0的整数, 最多只保存小数点后2位
@@ -185,27 +191,27 @@ AnalyticsUtil.payWithItem(cash, source, item, amount, price);
 * price 虚拟币数量
 
 #### 购买
-
-AnalyticsUtil.buy(item, amount, price);
-
+```
+AnalyticsAgent.buy(item, amount, price);
+```
 * item 道具ID
 * amount 道具数量,大于0的整数
 * price 道具单价
 
 #### 消耗
-
-AnalyticsUtil.use(item, amount, price);
-
+```
+AnalyticsAgent.use(item, amount, price);
+```
 * item 道具ID
 * amount 道具数量,大于0的整数
 * price 道具单价
 
 #### 额外奖励
+```
+AnalyticsAgent.bonus(coin, source); //赠送金币
 
-AnalyticsUtil.bonus(coin, source); //赠送金币
-
-AnalyticsUtil.bonusWithItem(item, amount, price, source); //赠送道具
-
+AnalyticsAgent.bonusWithItem(item, amount, price, source); //赠送道具
+```
  * coin 虚拟币数量，大于0的整数, 最多只保存小数点后2位
  * source 奖励渠道，取值在 1~10 之间。“1”已经被预先定义为“系统奖励”，2~10 需要在网站设置含义
  * item 道具ID，非空字符串
@@ -213,9 +219,9 @@ AnalyticsUtil.bonusWithItem(item, amount, price, source); //赠送道具
  * price 道具单价
 
 #### 交易兑换货币
-
-AnalyticsUtil.exchange(orderId, currencyAmount, currencyType, virtualAmount, channel);
-
+```
+AnalyticsAgent.exchange(orderId, currencyAmount, currencyType, virtualAmount, channel);
+```
 * currencyAmount 现金或等价物总额
 * currencyType 为ISO4217定义的3位字母代码，如CNY,USD等（如使用其它自定义等价物作为现金，可使用ISO4217中未定义的3位字母组合传入货币类型）
 * virtualAmount 虚拟币数量

@@ -3,7 +3,7 @@ cordova.define("Umeng.Analytics", function(require, exports, module) {
  * Javascript interface of Cordova plugin for Umeng Analytics SDK
  */
 
-    var MobclickAgent = {
+    var AnalyticsAgent = {
 
     /**
      * 自定义事件数量统计
@@ -345,6 +345,6 @@ cordova.define("Umeng.Analytics", function(require, exports, module) {
 
        };
 
-               module.exports =MobclickAgent;
+               module.exports =AnalyticsAgent;
 
 });

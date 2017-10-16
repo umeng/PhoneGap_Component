@@ -48,20 +48,20 @@
 		var eventData = new Object();
 		eventData.name = "aaa";
 		eventData.age = 17;
-		MobclickAgent.onEventWithParameters('EventParameters', eventData);
+		AnalyticsAgent.onEventWithParameters('EventParameters', eventData);
 	}
 	function eventWithCounter() {
 		var eventCounter = new Object();
 		eventCounter.name = "key";
 		eventCounter.age = 17;
-		MobclickAgent.onEventWithCounter("EventCounter", eventCounter, 12);
+		AnalyticsAgent.onEventWithCounter("EventCounter", eventCounter, 12);
 	}
 	function onCCEvent() {
 		var eventArray = new Array();
 		eventArray[0] = "one";
 		eventArray[1] = "two";
 		eventArray[2] = "tree"
-		MobclickAgent.onCCEvent(eventArray, 10, "eventlabel");
+		AnalyticsAgent.onCCEvent(eventArray, 10, "eventlabel");
 	}
 		function gotoBack() {
 		window.location.href='index.html';
@@ -77,10 +77,10 @@
 
 <br />
 <input type="button" value="onEvent"
-       onclick="MobclickAgent.onEvent('Event0')" />
+       onclick="AnalyticsAgent.onEvent('Event0')" />
 <br />
 <input type="button" value="onEventWithLabel"
-       onclick="MobclickAgent.onEventWithLabel('EventLabel', 'Label')" />
+       onclick="AnalyticsAgent.onEventWithLabel('EventLabel', 'Label')" />
 <br />
 <input type="button" value="onEventWithCounter"
        onclick="eventWithCounter()" />
@@ -89,83 +89,83 @@
        onclick="eventWithParameters()" />
 <br />
 <input type="button" value="onPageBegin"
-       onclick="MobclickAgent.onPageBegin('Home')" />
+       onclick="AnalyticsAgent.onPageBegin('Home')" />
 <br />
 <input type="button" value="onPageEnd"
-       onclick="MobclickAgent.onPageEnd('Home')" />
+       onclick="AnalyticsAgent.onPageEnd('Home')" />
 
 <br />
 <br /> UMDplus:
 <br />
 <input type="button" value="track"
-       onclick="MobclickAgent.track('eventA')" />
+       onclick="AnalyticsAgent.track('eventA')" />
 <br />
 <input type="button" value="trackWithProperty"
-       onclick="MobclickAgent.trackWithProperty('eventB',{'name':'Tom','age':'21'})" />
+       onclick="AnalyticsAgent.trackWithProperty('eventB',{'name':'Tom','age':'21'})" />
 <br />
 <input type="button" value="registerSuperProperty"
-       onclick="MobclickAgent.registerSuperProperty({'name':'Jerry','age':'23'})" />
+       onclick="AnalyticsAgent.registerSuperProperty({'name':'Jerry','age':'23'})" />
 <br />
 <input type="button" value="unregisterSuperProperty"
-       onclick="MobclickAgent.unregisterSuperProperty('name')" />
+       onclick="AnalyticsAgent.unregisterSuperProperty('name')" />
 <br />
 <input type="button" value="getSuperProperty"
-       onclick="MobclickAgent.getSuperProperty(getSuperProperty,'age')" />
+       onclick="AnalyticsAgent.getSuperProperty(getSuperProperty,'age')" />
 <br />
 <input type="button" value="getSuperProperties"
-       onclick="MobclickAgent.getSuperProperties(getSuperProperties)" />
+       onclick="AnalyticsAgent.getSuperProperties(getSuperProperties)" />
 <br />
 <input type="button" value="clearSuperProperties"
-       onclick="MobclickAgent.clearSuperProperties()" />
+       onclick="AnalyticsAgent.clearSuperProperties()" />
 <br />
 <input type="button" value="setFirstLaunchEvent"
-       onclick="MobclickAgent.setFirstLaunchEvent(['arrayA','arrayB','arrayC'])" />
+       onclick="AnalyticsAgent.setFirstLaunchEvent(['arrayA','arrayB','arrayC'])" />
 
 <br />
 <br /> UMGame:
 <br />
 <input type="button" value="profileSignInWithPUID"
-       onclick="MobclickAgent.profileSignInWithPUID('example_id')" />
+       onclick="AnalyticsAgent.profileSignInWithPUID('example_id')" />
 <br />
 <input type="button" value="profileSignInWithPUIDWithProvider"
-       onclick="MobclickAgent.profileSignInWithPUIDWithProvider('UM','example_id')" />
+       onclick="AnalyticsAgent.profileSignInWithPUIDWithProvider('UM','example_id')" />
 <br />
 <input type="button" value="profileSignOff"
-       onclick="MobclickAgent.profileSignOff()" />
+       onclick="AnalyticsAgent.profileSignOff()" />
 <br />
 <input type="button" value="setUserLevelId"
-       onclick="MobclickAgent.setUserLevelId(12)" />
+       onclick="AnalyticsAgent.setUserLevelId(12)" />
 <br />
 <input type="button" value="startLevel"
-       onclick="MobclickAgent.startLevel('Level-13')" />
+       onclick="AnalyticsAgent.startLevel('Level-13')" />
 <br />
 <input type="button" value="finishLevel"
-       onclick="MobclickAgent.finishLevel('Level-13')" />
+       onclick="AnalyticsAgent.finishLevel('Level-13')" />
 <br />
 <input type="button" value="failLevel"
-       onclick="MobclickAgent.failLevel('Level-13')" />
+       onclick="AnalyticsAgent.failLevel('Level-13')" />
 <br />
 
 <input type="button" value="exchange"
-       onclick="MobclickAgent.exchange(100,'RMB',10000,2,'0EDKJH123HJ53')" />
+       onclick="AnalyticsAgent.exchange(100,'RMB',10000,2,'0EDKJH123HJ53')" />
 <br />
 <input type="button" value="pay"
-       onclick="MobclickAgent.pay(21,99,10)" />
+       onclick="AnalyticsAgent.pay(21,99,10)" />
 <br />
 <input type="button" value="payWithItem"
-       onclick="MobclickAgent.payWithItem(222,'payWithItem',200,203.30,77)" />
+       onclick="AnalyticsAgent.payWithItem(222,'payWithItem',200,203.30,77)" />
 <br />
 <input type="button" value="buy"
-       onclick="MobclickAgent.buy('buyApple',4,302)" />
+       onclick="AnalyticsAgent.buy('buyApple',4,302)" />
 <br />
 <input type="button" value="use"
-       onclick="MobclickAgent.use('useApple',5,303)" />
+       onclick="AnalyticsAgent.use('useApple',5,303)" />
 <br />
 <input type="button" value="bonus"
-       onclick="MobclickAgent.bonus(200,6)" />
+       onclick="AnalyticsAgent.bonus(200,6)" />
 <br />
 <input type="button" value="bonusWithItem"
-       onclick="MobclickAgent.bonusWithItem('bonusItem',7,201,10)" />
+       onclick="AnalyticsAgent.bonusWithItem('bonusItem',7,201,10)" />
 <br />
 <br />
 <br />
