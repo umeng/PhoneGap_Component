@@ -192,7 +192,7 @@
                 if (error.code == 2009) {
                     stcode = -1;
                 }
-                CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:stcode];
+                CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:error.code];
                 [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
                 
             } else {
@@ -279,17 +279,18 @@
 
 - (void)handleShareResult:(NSInteger)retCode  result:(NSDictionary *)result  command:(CDVInvokedUrlCommand*)command
 {
+    NSLog(@"%d",retCode);
     if (retCode != 0) {
         int stcode = 0;
         if (retCode == 2009) {
             stcode = -1;
             
         }
-        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:stcode];
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:retCode];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
         return;
     }else{
-        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:0];
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:200];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
 }
