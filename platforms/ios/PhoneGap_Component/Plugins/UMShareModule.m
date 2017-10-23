@@ -65,7 +65,7 @@
         case 24:
             return UMSocialPlatformType_Whatsapp;
         case 25:
-            return UMSocialPlatformType_Linkedin;
+            return UMSocialPlatformType_Line;
         case 26:
             return UMSocialPlatformType_Flickr;
         case 27:
@@ -136,11 +136,9 @@
     NSString *link = args[2];
     NSString *title = args[3];
     
-
-    
     UMSocialPlatformType plf = [self platformType:platform];
     if (plf == UMSocialPlatformType_UnKnown) {
-        [self handleShareResult:-1  result:nil command:command];
+        [self handleShareResult:-2  result:nil command:command];
         return;
     }
     
@@ -188,16 +186,9 @@
                 }if (!msg) {
                     msg = @"share failed";
                 }
-                int stcode = 0;
-                if (error.code == 2009) {
-                    stcode = -1;
-                }
-                CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:error.code];
-                [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-                
+                [self handleShareResult:error.code result:nil command:command];
             } else {
-                CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:200];
-                [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+                [self handleShareResult:0 result:nil command:command];
             }
         }];
     }];
@@ -206,7 +197,6 @@
 
 - (void)getInfo:(CDVInvokedUrlCommand*)command
 {
-    NSLog(@"11");
     NSArray *args = command.arguments;
     UMSocialPlatformType platform = [args[0] integerValue];
    
@@ -252,47 +242,48 @@
     }];
 }
 
+
+- (NSInteger)switchCode:(NSInteger)code
+{
+    switch (code) {
+        case 0: // success
+            return 200;
+            break;
+        case 2009: // cancel
+            return -1;
+            break;
+            
+        default:
+            return 0;
+            break;
+    }
+}
+
 - (void)handleResult:(NSInteger)retCode message:(NSString *)message result:(NSDictionary *)result command:(CDVInvokedUrlCommand*)command
 {
-    if (retCode != 0) {
+    NSInteger stCode = [self switchCode:retCode];
+    
+    if (stCode == 200) {
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:result];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    }else{
         NSDictionary *dict;
-        if (retCode == 2009) {
-             dict = [NSDictionary dictionaryWithObjectsAndKeys:@"cancel",@"error", nil];
-            
+        if (stCode == -1) {
+            dict = [NSDictionary dictionaryWithObjectsAndKeys:@"cancel",@"error", nil];
         }else{
-             dict = [NSDictionary dictionaryWithObjectsAndKeys:message,@"error", nil];
+            dict = [NSDictionary dictionaryWithObjectsAndKeys:message,@"error", nil];
         }
         CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-        return;
-    }else{
-        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:result];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
-  
-
-
-    
-
-   
 }
 
 - (void)handleShareResult:(NSInteger)retCode  result:(NSDictionary *)result  command:(CDVInvokedUrlCommand*)command
 {
-    NSLog(@"%d",retCode);
-    if (retCode != 0) {
-        int stcode = 0;
-        if (retCode == 2009) {
-            stcode = -1;
-            
-        }
-        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:retCode];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-        return;
-    }else{
-        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:200];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-    }
+    NSInteger stCode = [self switchCode:retCode];
+    
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:stCode];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 @end
