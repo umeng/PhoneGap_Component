@@ -1,6 +1,55 @@
 # 工程配置
-首先需要说明，PhoneGap下载的只是桥接文件，不含最新版本的jar，对应组件的jar请去[下载中心](https://github.com/umeng/Hybrid_Component)下载。
-如果对于文档仍有疑问的，请参照我们在github上的[demo](https://github.com/umeng/React_Native_Compent)
+首先需要说明，PhoneGap下载的只是桥接文件，不含最新版本的jar，对应组件的jar请去[下载中心](https://developer.umeng.com/sdk)下载。
+如果对于文档仍有疑问的，请参照我们在github上的[demo](https://github.com/umeng/PhoneGap_Component)
+
+* 注意：分支cordova_8.1.2提供基于cordova android 7.1.4 和 cordova ios 4.5.5框架结构集成示例。
+
+## PhoneGap开发环境搭建
+
+### 下载安装Node.js
+检查node.js环境，下载地址：https://nodejs.org/en/
+
+```
+node -v
+
+```
+
+### 安装PhoneGap
+
+```
+npm install -g phonegap
+```
+
+安装完成后，检验是否成功，输入
+```
+phonegap -version
+```输出phonegap版本号标识安装成功
+
+### 安装Cordova
+
+```
+npm install -g cordova
+```
+
+安装完成后，检验是否成功，输入
+```
+cordova -version
+```输出cordova版本号标识安装成功
+
+### 创建PhoneGap应用
+
+
+```
+phonegap create demo
+
+cd demo
+
+phonegap add android
+phonegap add ios
+
+
+```
+
 
 ## Android
 ### 初始化
@@ -35,6 +84,74 @@
 
  
  >`PGCommonSDK.init`接口一共五个参数，其中第一个参数为Context，第二个参数为友盟Appkey，第三个参数为channel，第四个参数为应用类型（手机或平板），第五个参数为push的secret（如果没有使用push，可以为空）。
+ 
+### 工程配置
+
+#### 引入js桥接文件
+
+ * 找到Android工程assets/www/plugins目录, 在此目录下建立umeng/www子目录，将三个友盟业务对应桥接js文件 analyticssdk.js、pushsdk.js、socialsdk.js拷贝到assets/www/plugins/umeng/www路径下。
+
+ 
+#### 修改 cordova_plugins.js 配置
+
+* 找到Android工程assets目录下www/cordova_plugins.js文件，添加对友盟各个业务SDK插件模块的导出：
+
+``` js
+
+    {   
+        "file": "plugins/umeng/www/analyticssdk.js",
+        "id": "Umeng.Analytics",
+        "clobbers": [
+            "MobclickAgent"
+        ]   
+    },  
+    {   
+            "file": "plugins/umeng/www/pushsdk.js",
+            "id": "Umeng.Push",
+            "clobbers": [
+                "PushAgent"
+            ]   
+    },  
+    {   
+                "file": "plugins/umeng/www/socialsdk.js",
+                "id": "Umeng.Social",
+                "clobbers": [
+                    "SocialAgent"
+                ]   
+    },
+    
+
+```
+ 
+
+![](http://dev.umeng.com/system/images/W1siZiIsIjIwMTgvMTIvMDcvMTZfMTlfMjRfOTc1X3BpYzIucG5nIl1d/pic2.png)
+
+
+#### 修改config.xml配置
+
+ 
+ * 找到Android工程res目录下xml/config.xml配置文件，添加对友盟各个业务SDK插件的引用：
+ 
+``` xml
+ 
+<plugins>
+        <feature name="AnalyticsSDK">
+            <param name="android-package" value="com.umeng.plugin.AnalyticsSDK" />
+        </feature>
+        <feature name="PushSDK">
+            <param name="android-package" value="com.umeng.plugin.PushSDK" />
+        </feature>
+        <feature name="SocialSDK">
+            <param name="android-package" value="com.umeng.plugin.SocialSDK" />
+        </feature>
+</plugins>
+    
+```
+ 
+ ![](http://dev.umeng.com/system/images/W1siZiIsIjIwMTgvMTIvMDcvMTVfNDdfNDdfNTUzX3BpYzEucG5nIl1d/pic1.png)
+
+
+ 
 
 至此，所有的工程配置已经完成，接下来请按照各个组件的文档进行初始化。
 
@@ -65,6 +182,63 @@
   ...
 }
 ```
+
+### 工程配置
+#### 引入js文件
+将js文件引入至plugins下
+
+#### 配置cordova_plugins.js
+将cordova_plugins.js里module.exports中加入
+
+```
+module.exports = [
+
+                  {
+                  "file": "plugins/umeng/www/analyticssdk.js",
+                  "id": "Umeng.Analytics",
+                  "clobbers": [
+                               "AnalyticsAgent"
+                               ]
+                  },
+                  {
+                  "file": "plugins/umeng/www/pushsdk.js",
+                  "id": "Umeng.Push",
+                  "clobbers": [
+                               "PushAgent"
+                               ]
+                  },
+                  {
+                  "file": "plugins/umeng/www/socialsdk.js",
+                  "id": "Umeng.Social",
+                  "clobbers": [
+                               "SocialAgent"
+                               ]
+                  },
+];
+```
+注意：file路径是否正确
+
+#### 配置config.xml
+
+找到工程中的config.xml文件，加入代码
+
+```
+
+<plugins>
+        <feature name="AnalyticsSDK">
+            <param name="ios-package" value="UMAnalyticsModule" />
+        </feature>
+        <feature name="PushSDK">
+            <param name="ios-package" value="UMPushModule" />
+        </feature>
+        <feature name="SocialSDK">
+            <param name="ios-package" value="UMShareModule" />
+        </feature>
+</plugins>
+
+```
+
+
 
 ## 接口说明
 # 统计
