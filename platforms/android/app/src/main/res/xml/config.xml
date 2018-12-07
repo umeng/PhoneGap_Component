@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.umeng.soexample" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <plugins>
+        <feature name="AnalyticsSDK">
+            <param name="android-package" value="com.umeng.plugin.AnalyticsSDK" />
+        </feature>
+        <feature name="PushSDK">
+            <param name="android-package" value="com.umeng.plugin.PushSDK" />
+        </feature>
+        <feature name="SocialSDK">
+            <param name="android-package" value="com.umeng.plugin.SocialSDK" />
+        </feature>
+    </plugins>
+    <name>UmengDemoNew</name>
+    <description>
+        A sample Apache Cordova application that responds to the deviceready event.
+    </description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+        Apache Cordova Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-intent href="market:*" />
+    <preference name="loglevel" value="DEBUG" />
+</widget>

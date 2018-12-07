@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<manifest android:hardwareAccelerated="true" android:versionCode="10000" android:versionName="1.0.0" package="com.umeng.soexample" xmlns:android="http://schemas.android.com/apk/res/android">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true" />
+    
+    <application android:hardwareAccelerated="true" android:icon="@mipmap/icon" android:label="@string/app_name" android:supportsRtl="true" android:name="com.umeng.soexample.App"> 
+        <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale" android:label="@string/activity_name" android:launchMode="singleTop" android:name="MainActivity" android:theme="@android:style/Theme.DeviceDefault.NoActionBar" android:windowSoftInputMode="adjustResize">
+            <intent-filter android:label="@string/launcher_name">
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+	<!-- ###################注册SDK使用的Activity###################### -->
+        <!--分享编辑页-->
+        <activity android:excludeFromRecents="true" android:name="com.umeng.socialize.editorpage.ShareActivity" android:theme="@style/Theme.UMDefault" />
+        <!-- ############ QQ空间和QQ SSO授权的Activity注册 ############ -->
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tencent100424468" />
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|keyboardHidden|screenSize" android:name="com.tencent.connect.common.AssistActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- ############ weixin ############ -->
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.umeng.soexample.wxapi.WXEntryActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+    </application>
+    <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="27" />
+    
+    <!-- ###################声明SDK使用的相关权限###################### -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- renren sso Permission for Unit Test -->
+    <!-- QQ、QQ空间所需权限 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    
+    <!-- 用于评论模块分享位置信息 -->
+    <uses-feature android:glEsVersion="0x00020000" />
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+    <uses-feature android:name="android.hardware.touchscreen.multitouch" android:required="false" />
+    <uses-feature android:name="android.hardware.touchscreen.multitouch.distinct" android:required="false" />
+
+</manifest>

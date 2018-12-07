@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="SocialSDK_WeChat_Simplify">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/social/libs/SocialSDK_WeChat_Simplify.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

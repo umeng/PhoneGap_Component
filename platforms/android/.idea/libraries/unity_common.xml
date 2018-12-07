@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="unity_common">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/libs/unity_common.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

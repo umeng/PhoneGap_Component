@@ -1,8 +1,8 @@
 {
   "_from": "cordova-plugin-whitelist@1",
-  "_id": "cordova-plugin-whitelist@1.3.2",
+  "_id": "cordova-plugin-whitelist@1.3.3",
   "_inBundle": false,
-  "_integrity": "sha1-W2M1/rn1MB88ATuQlsuIhb29UHY=",
+  "_integrity": "sha1-tehezbv+Wu3tQKG/TuI3LmfZb7Q=",
   "_location": "/cordova-plugin-whitelist",
   "_phantomChildren": {},
   "_requested": {
@@ -19,15 +19,15 @@
     "#USER",
     "/"
   ],
-  "_resolved": "http://registry.npm.taobao.org/cordova-plugin-whitelist/download/cordova-plugin-whitelist-1.3.2.tgz",
-  "_shasum": "5b6335feb9f5301f3c013b9096cb8885bdbd5076",
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-whitelist/-/cordova-plugin-whitelist-1.3.3.tgz",
+  "_shasum": "b5e85ecdbbfe5aeded40a1bf4ee2372e67d96fb4",
   "_spec": "cordova-plugin-whitelist@1",
-  "_where": "/Users/umeng/file/PhoneGap/PhoneGap_Component/node_modules",
+  "_where": "/Users/umeng/phonegap_demo/UmengDemoNew",
   "author": {
     "name": "Apache Software Foundation"
   },
   "bugs": {
-    "url": "https://github.com/apache/cordova-plugin-whitelist/issues"
+    "url": "https://issues.apache.org/jira/browse/CB"
   },
   "bundleDependencies": false,
   "cordova": {
@@ -60,5 +60,5 @@
     "type": "git",
     "url": "git+https://github.com/apache/cordova-plugin-whitelist.git"
   },
-  "version": "1.3.2"
+  "version": "1.3.3"
 }
