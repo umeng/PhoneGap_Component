@@ -10,13 +10,11 @@
 typedef void(^CallbackBlock)();
 
 /**
- 统计的场景类别，默认为普通统计；若使用游戏统计API，则需选择游戏场景类别，如E_UM_GAME。
+ 统计的场景类别，默认为普通统计；若使用游戏统计API，则需选择游戏场景类别，如E_UM_NORMAL。
  */
 typedef NS_ENUM (NSUInteger, eScenarioType)
 {
     E_UM_NORMAL = 0,    // default value
-    E_UM_GAME   = 1,    // game
-    E_UM_DPLUS  = 4    // DPlus
 };
 
 @class CLLocation;
@@ -29,7 +27,7 @@ typedef NS_ENUM (NSUInteger, eScenarioType)
 ///---------------------------------------------------------------------------------------
 
 /** 设置 统计场景类型，默认为普通应用统计：E_UM_NORMAL
- @param 游戏统计必须设置为：E_UM_GAME.
+ @param 
  @return void.
  */
 + (void)setScenarioType:(eScenarioType)eSType;
@@ -205,23 +203,45 @@ typedef NS_ENUM (NSUInteger, eScenarioType)
 
 + (void)setCrashCBBlock:(CallbackBlock)cbBlock;
 
-#pragma mark REMOVED APIs -
-
-/** 组件化的友盟SDK产品，设置是否打开console和对日志信息功能已经统一迁移到UMCommon库中UMConfigure类中完成.
+/** DeepLink事件
+ @param link 唤起应用的link
+ @return void.
  */
-+ (void)setEncryptEnabled:(BOOL)value  API_DEPRECATED_WITH_REPLACEMENT("Please use [UMConfigure setEncryptEnabled:YES/NO]", ios(2.0, 5.0));
-+ (void)setLogEnabled:(BOOL)value API_DEPRECATED_WITH_REPLACEMENT("Please use [UMConfigure setLogEnabled:YES/NO]", ios(2.0, 5.0));
++ (void)onDeepLinkReceived:(NSURL *)link;
 
-/** 组件化的友盟SDK产品，统一了app的版本号为shortversion,不再使用历史遗留的Build号(CFBundleVersion)，开发者直接删除该API.
+/**
+ * 设置预置事件属性 键值对 会覆盖同名的key
  */
-+ (void)setAppVersion:(NSString *)appVersion API_UNAVAILABLE(ios);
++(void) registerPreProperties:(NSDictionary *)property;
 
-/** 新版iOS 的发送策略已经调整，并不需要开发者设置，日志数据可以在app切到后台时统一发送。
+/**
+ *
+ * 删除指定预置事件属性
+ @param key
  */
-+ (void)setReportPolicy:(int)ePolicy API_UNAVAILABLE(ios);
-+ (void)setLogSendInterval:(double)second API_UNAVAILABLE(ios);
++(void) unregisterPreProperty:(NSString *)propertyName;
 
-/** 因业务调整，结构化事件暂时不可用。
+/**
+ * 获取预置事件所有属性；如果不存在，则返回空。
  */
-+ (void)event:(NSArray *)keyPath value:(int)value label:(NSString *)label API_UNAVAILABLE(ios);
++(NSDictionary *)getPreProperties;
+
+/**
+ *清空所有预置事件属性。
+ */
++(void)clearPreProperties;
+
+
+/**
+ * 设置关注事件是否首次触发,只关注eventList前五个合法eventID.只要已经保存五个,此接口无效
+ */
++(void)setFirstLaunchEvent:(NSArray *)eventList;
+
+/** 设置是否自动采集页面, 默认NO(不自动采集).
+ @param value 设置为YES, umeng SDK 会将自动采集页面信息
+ */
++ (void)setAutoPageEnabled:(BOOL)value;
+
 @end
+
+

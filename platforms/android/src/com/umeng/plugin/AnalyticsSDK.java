@@ -9,9 +9,6 @@ import java.util.Map;
 import android.content.Context;
 import android.util.Log;
 import com.umeng.analytics.MobclickAgent;
-import com.umeng.analytics.MobclickAgent.EScenarioType;
-import com.umeng.analytics.dplus.UMADplus;
-import com.umeng.analytics.game.UMGameAgent;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
@@ -20,26 +17,19 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+//import com.umeng.analytics.dplus.UMADplus;
+//import com.umeng.analytics.game.UMGameAgent;
+
 /**
+ * 示例： SDK 接口桥接封装类，并未封装SDK所有API(仅封装常用API接口)，设置配置参数类API应在Android原生代码中
+ * 调用，例如：SDK初始化函数，Log开关函数，子进程自定义事件埋点使能函数，异常捕获功能使能/关闭函数等等。
+ * 如果还需要封装其它SDK API，请参考本例自行封装。
  * Created by wangfei on 17/9/26.
+ * -- 适配海棠版(common 2.0.0 + analytics 8.0.0) modify by yujie on 18/12/28
  */
 
 public class AnalyticsSDK extends CordovaPlugin {
     private Context mContext = null;
-    /**
-     * 可以设置是否为游戏，如果是游戏会进行初始化
-     */
-    private boolean isGameInited = false;
-
-    /**
-     * 初始化游戏
-     */
-    private void initGame() {
-        UMGameAgent.init(mContext);
-        UMGameAgent.setPlayerLevel(1);
-        MobclickAgent.setScenarioType(mContext, EScenarioType.E_UM_GAME);
-        isGameInited = true;
-    }
 
     @Override
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
@@ -128,124 +118,19 @@ public class AnalyticsSDK extends CordovaPlugin {
                 e.printStackTrace();
             }
             return true;
-        } else if (action.equals("setLogEnabled")) {
-            boolean enabled = args.getBoolean(0);
-            MobclickAgent.setDebugMode(enabled);
-            return true;
         } else if (action.equals("profileSignInWithPUID")) {
             String puid = args.getString(0);
             MobclickAgent.onProfileSignIn(puid);
             return true;
         } else if (action.equals("profileSignInWithPUIDWithProvider")) {
-            String puid = args.getString(0);
-            String provider = args.getString(1);
-            MobclickAgent.onProfileSignIn(puid, provider);
+            String provider = args.getString(0);
+            String puid = args.getString(1);
+            MobclickAgent.onProfileSignIn(provider, puid);
             return true;
         } else if (action.equals("profileSignOff")) {
             MobclickAgent.onProfileSignOff();
             return true;
-        } else if (action.equals("setUserLevelId")) {
-            if (!isGameInited) {
-                initGame();
-            }
-            int level = args.getInt(0);
-            UMGameAgent.setPlayerLevel(level);
-            return true;
-        } else if (action.equals("startLevel")) {
-            if (!isGameInited) {
-                initGame();
-            }
-            String level = args.getString(0);
-            UMGameAgent.startLevel(level);
-            return true;
-        } else if (action.equals("finishLevel")) {
-            if (!isGameInited) {
-                initGame();
-            }
-            String level = args.getString(0);
-            UMGameAgent.failLevel(level);
-            return true;
-        } else if (action.equals("failLevel")) {
-            if (!isGameInited) {
-                initGame();
-            }
-            String level = args.getString(0);
-            UMGameAgent.finishLevel(level);
-
-            return true;
-        } else if (action.equals("exchange")) {
-            if (!isGameInited) {
-                initGame();
-            }
-            double currencyAmount = args.getDouble(0);
-            String currencyType = args.getString(1);
-            double virtualAmount = args.getDouble(2);
-            int channel = args.getInt(3);
-            String orderId = args.getString(4);
-            UMGameAgent.exchange(currencyAmount, currencyType, virtualAmount, channel, orderId);
-            return true;
-        } else if (action.equals("pay")) {
-            if (!isGameInited) {
-                initGame();
-            }
-            double money = args.getDouble(0);
-            double coin = args.getDouble(1);
-            int source = args.getInt(2);
-            UMGameAgent.pay(money, coin, source);
-            return true;
-        } else if (action.equals("payWithItem")) {
-            if (!isGameInited) {
-                initGame();
-            }
-            double money = args.getDouble(0);
-            String item = args.getString(1);
-            int number = args.getInt(2);
-            double price = args.getDouble(3);
-            int source = args.getInt(4);
-            UMGameAgent.pay(money, item, number, price, source);
-            return true;
-        } else if (action.equals("buy")) {
-            if (!isGameInited) {
-                initGame();
-            }
-            String item = args.getString(0);
-            int number = args.getInt(1);
-            double price = args.getDouble(2);
-            UMGameAgent.buy(item, number, price);
-            return true;
-        } else if (action.equals("use")) {
-            if (!isGameInited) {
-                initGame();
-            }
-            String item = args.getString(0);
-            int number = args.getInt(1);
-            double price = args.getDouble(2);
-            UMGameAgent.use(item, number, price);
-            return true;
-        } else if (action.equals("bonus")) {
-            if (!isGameInited) {
-                initGame();
-            }
-            double coin = args.getDouble(0);
-            int source = args.getInt(1);
-            UMGameAgent.bonus(coin, source);
-            return true;
-        } else if (action.equals("bonusWithItem")) {
-            if (!isGameInited) {
-                initGame();
-            }
-            String item = args.getString(0);
-            int number = args.getInt(1);
-            double price = args.getDouble(2);
-            int source = args.getInt(3);
-            UMGameAgent.bonus(item, number, price, source);
-            return true;
-        } else if (action.equals("track")) {
-            String eventName = args.getString(0);
-            Log.d("UMPlugin", "track="+eventName);
-            UMADplus.track(mContext, eventName);
-            return true;
-        } else if (action.equals("trackWithProperty")) {
+        } else if (action.equals("onEventObject")) {
             String eventName = args.getString(0);
             JSONObject obj = args.getJSONObject(1);
             Map<String, Object> map = new HashMap<String, Object>();
@@ -255,28 +140,26 @@ public class AnalyticsSDK extends CordovaPlugin {
                 Object o = obj.get(key);
                 map.put(key, o);
             }
-            UMADplus.track(mContext, eventName, map);
+            MobclickAgent.onEventObject(mContext, eventName, map);
             return true;
-        } else if (action.equals("registerSuperProperty")) {
-            String propertyKey = args.getString(0);
-            String propertyValue = args.getString(1);
-            UMADplus.registerSuperProperty(mContext, propertyKey, propertyValue);
+        } else if (action.equals("registerPreProperties")) {
+            for(int i=0 ; i < args.length() ;i++)
+            {
+                //获取每一个JsonObject对象
+                MobclickAgent.registerPreProperties(mContext, args.getJSONObject(i));
+                //String res = MobclickAgent.getPreProperties(mContext).toString();
+            }
             return true;
-        } else if (action.equals("unregisterSuperProperty")) {
+        } else if (action.equals("unregisterPreProperty")) {
             String propertyName = args.getString(0);
-            UMADplus.unregisterSuperProperty(mContext, propertyName);
+            MobclickAgent.unregisterPreProperty(mContext, propertyName);
             return true;
-        } else if (action.equals("getSuperProperty")) {
-            String propertyName = args.getString(0);
-            String res = (String) UMADplus.getSuperProperty(mContext, propertyName);
+        } else if (action.equals("getPreProperties")) {
+            String res = MobclickAgent.getPreProperties(mContext).toString();
             callbackContext.success(res);
             return true;
-        } else if (action.equals("getSuperProperties")) {
-            String res = UMADplus.getSuperProperties(mContext);
-            callbackContext.success(res);
-            return true;
-        } else if (action.equals("clearSuperProperties")) {
-            UMADplus.clearSuperProperties(mContext);
+        } else if (action.equals("clearPreProperties")) {
+            MobclickAgent.clearPreProperties(mContext);
             return true;
         } else if (action.equals("setFirstLaunchEvent")) {
             JSONArray array = args.getJSONArray(0);
@@ -284,7 +167,7 @@ public class AnalyticsSDK extends CordovaPlugin {
             for (int i = 0; i < array.length(); i++) {
                 list.add(array.getString(i));
             }
-            UMADplus.setFirstLaunchEvent(mContext, list);
+            MobclickAgent.setFirstLaunchEvent(mContext, list);
 
             return true;
         }

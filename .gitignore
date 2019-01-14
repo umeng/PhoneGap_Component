@@ -1,5 +1,16 @@
 dabao.sh
+dabao_db.sh
 upload.*
 /upload/*
 UMPhoneGap*.*
 /UMPhoneGap/*
+.DS_Store
+platforms/.DS_Store
+platforms/android/.gradle/
+platforms/android/.idea/
+platforms/android/CordovaLib/build/
+platforms/android/assets/.DS_Store
+platforms/android/.DS_Store
+platforms/android/assets/www/plugins/umeng/.DS_Store
+plugins/.DS_Store
+plugins/umeng/.DS_Store

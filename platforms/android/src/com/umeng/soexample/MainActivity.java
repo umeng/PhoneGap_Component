@@ -22,10 +22,8 @@ package com.umeng.soexample;
 import android.content.Intent;
 import android.os.Bundle;
 import com.umeng.analytics.MobclickAgent;
-import com.umeng.analytics.MobclickAgent.EScenarioType;
-import com.umeng.plugin.AnalyticsSDK;
 import com.umeng.socialize.UMShareAPI;
-import org.apache.cordova.*;
+import org.apache.cordova.CordovaActivity;
 
 public class MainActivity extends CordovaActivity
 {
@@ -42,9 +40,7 @@ public class MainActivity extends CordovaActivity
 
         // Set by <content src="index.html" /> in config.xml
         loadUrl(launchUrl);
-        MobclickAgent.setScenarioType(this, EScenarioType.E_DUM_NORMAL);
-        MobclickAgent.openActivityDurationTrack(false);
-        MobclickAgent.setSessionContinueMillis(1000);
+        MobclickAgent.setSessionContinueMillis(1000*30);
     }
 
     @Override

@@ -39,10 +39,12 @@
 
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
+    
     [UMConfigure setLogEnabled:YES];    // debug: only for console log, must be remove in release version
     [UMCommonModule initWithAppkey:@"58edd022f29d9826f000139e" channel:@"App Store"];
-    [MobClick setScenarioType:E_UM_DPLUS|E_UM_GAME];
     
+    [MobClick setScenarioType:1];
+    [MobClick event:@"zjhevent"];
     /* Share init */
     [self setupUSharePlatforms];   // required: setting platforms on demand
     [self setupUShareSettings];

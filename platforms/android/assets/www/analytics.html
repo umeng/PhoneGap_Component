@@ -63,7 +63,7 @@
 		eventArray[2] = "tree"
 		MobclickAgent.onCCEvent(eventArray, 10, "eventlabel");
 	}
-		function gotoBack() {
+	function gotoBack() {
 		window.location.href='index.html';
 	}
 </script>
@@ -97,79 +97,27 @@
        onclick="MobclickAgent.onPageEnd('Home')" />
 
 <br />
-<br /> UMDplus:
+
+<input type="button" value="onEventObject"
+       onclick="MobclickAgent.onEventObject('eventB',{'name':'Tom','age':'21'})" />
 <br />
-<input type="button" value="track"
-       onclick="MobclickAgent.track('eventA')" />
+<input type="button" value="registerPreProperties"
+       onclick="MobclickAgent.registerPreProperties({'name':'Jerry','age':'23'})" />
 <br />
-<input type="button" value="trackWithProperty"
-       onclick="MobclickAgent.trackWithProperty('eventB',{'name':'Tom','age':'21'})" />
+<input type="button" value="unregisterPreProperty"
+       onclick="MobclickAgent.unregisterPreProperty('name')" />
 <br />
-<input type="button" value="registerSuperProperty"
-       onclick="MobclickAgent.registerSuperProperty({'name':'Jerry','age':'23'})" />
+<input type="button" value="getPreProperties"
+       onclick="MobclickAgent.getPreProperties(function(r){alert('' +r);},'age')" />
 <br />
-<input type="button" value="unregisterSuperProperty"
-       onclick="MobclickAgent.unregisterSuperProperty('name')" />
-<br />
-<input type="button" value="getSuperProperty"
-       onclick="MobclickAgent.getSuperProperty(function(r){alert('' +r);},'age')" />
-<br />
-<input type="button" value="getSuperProperties"
-       onclick="MobclickAgent.getSuperProperties(function(r){alert('' +r);})" />
-<br />
-<input type="button" value="clearSuperProperties"
-       onclick="MobclickAgent.clearSuperProperties()" />
+<input type="button" value="clearPreProperties"
+       onclick="MobclickAgent.clearPreProperties()" />
 <br />
 <input type="button" value="setFirstLaunchEvent"
        onclick="MobclickAgent.setFirstLaunchEvent(['arrayA','arrayB','arrayC'])" />
 
 <br />
-<br /> UMGame:
-<br />
-<input type="button" value="profileSignInWithPUID"
-       onclick="MobclickAgent.profileSignInWithPUID('example_id')" />
-<br />
-<input type="button" value="profileSignInWithPUIDWithProvider"
-       onclick="MobclickAgent.profileSignInWithPUIDWithProvider('UM','example_id')" />
-<br />
-<input type="button" value="profileSignOff"
-       onclick="MobclickAgent.profileSignOff()" />
-<br />
-<input type="button" value="setUserLevelId"
-       onclick="MobclickAgent.setUserLevelId(12)" />
-<br />
-<input type="button" value="startLevel"
-       onclick="MobclickAgent.startLevel('Level-13')" />
-<br />
-<input type="button" value="finishLevel"
-       onclick="MobclickAgent.finishLevel('Level-13')" />
-<br />
-<input type="button" value="failLevel"
-       onclick="MobclickAgent.failLevel('Level-13')" />
-<br />
 
-<input type="button" value="exchange"
-       onclick="MobclickAgent.exchange(100,'RMB',10000,2,'0EDKJH123HJ53')" />
-<br />
-<input type="button" value="pay"
-       onclick="MobclickAgent.pay(21,99,10)" />
-<br />
-<input type="button" value="payWithItem"
-       onclick="MobclickAgent.payWithItem(222,'payWithItem',200,203.30,77)" />
-<br />
-<input type="button" value="buy"
-       onclick="MobclickAgent.buy('buyApple',4,302)" />
-<br />
-<input type="button" value="use"
-       onclick="MobclickAgent.use('useApple',5,303)" />
-<br />
-<input type="button" value="bonus"
-       onclick="MobclickAgent.bonus(200,6)" />
-<br />
-<input type="button" value="bonusWithItem"
-       onclick="MobclickAgent.bonusWithItem('bonusItem',7,201,10)" />
-<br />
-<br />
 <br />
 <input type="button" value="返回" margin=40
        onclick="gotoBack()" />

@@ -74,6 +74,8 @@
 		8300A8241F7B3E65009A6016 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8300A8231F7B3E65009A6016 /* libsqlite3.tbd */; };
 		8300A8261F7B3E72009A6016 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8300A8251F7B3E72009A6016 /* CoreTelephony.framework */; };
 		8300A8281F7B3E79009A6016 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8300A8271F7B3E79009A6016 /* libz.tbd */; };
+		9D68BC32210ABF45004B0A7E /* UMCommonLog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9D68BC30210ABF44004B0A7E /* UMCommonLog.bundle */; };
+		9D68BC33210ABF45004B0A7E /* UMCommonLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D68BC31210ABF45004B0A7E /* UMCommonLog.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,6 +204,8 @@
 		8300A8251F7B3E72009A6016 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		8300A8271F7B3E79009A6016 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* PhoneGap_Component-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "PhoneGap_Component-Info.plist"; path = "PhoneGap_Component/PhoneGap_Component-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = SOURCE_ROOT; };
+		9D68BC30210ABF44004B0A7E /* UMCommonLog.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = UMCommonLog.bundle; path = PhoneGap_Component/Plugins/Umeng/UMCommonLog.bundle; sourceTree = "<group>"; };
+		9D68BC31210ABF45004B0A7E /* UMCommonLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMCommonLog.framework; path = PhoneGap_Component/Plugins/Umeng/UMCommonLog.framework; sourceTree = "<group>"; };
 		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = PhoneGap_Component/config.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -241,6 +245,7 @@
 				63391ACB1F7B456400CFFCA0 /* FBSDKShareKit.framework in Frameworks */,
 				63391AD51F7B456400CFFCA0 /* libSocialTwitter.a in Frameworks */,
 				8300A81E1F7B3E46009A6016 /* UMAnalytics.framework in Frameworks */,
+				9D68BC33210ABF45004B0A7E /* UMCommonLog.framework in Frameworks */,
 				63391AD41F7B456400CFFCA0 /* Fabric.framework in Frameworks */,
 				63391AC91F7B456400CFFCA0 /* FBSDKLoginKit.framework in Frameworks */,
 				63391ACE1F7B456400CFFCA0 /* TencentOpenAPI.framework in Frameworks */,
@@ -315,6 +320,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9D68BC30210ABF44004B0A7E /* UMCommonLog.bundle */,
+				9D68BC31210ABF45004B0A7E /* UMCommonLog.framework */,
 				179D3A8F1F8CF7DE00F2E1AC /* UserNotifications.framework */,
 				63391A851F7B456300CFFCA0 /* UMPush.framework */,
 				63391A861F7B456300CFFCA0 /* UMShare */,
@@ -710,6 +717,7 @@
 				63391AD21F7B456400CFFCA0 /* WeiboSDK.bundle in Resources */,
 				7B1F04671F8CEB11007A1B05 /* platform.js in Resources */,
 				7B1F04611F8CEB11007A1B05 /* socialsdk.js in Resources */,
+				9D68BC32210ABF45004B0A7E /* UMCommonLog.bundle in Resources */,
 				7B1F04651F8CEB11007A1B05 /* social.html in Resources */,
 				63391ADE1F7B456400CFFCA0 /* UMSocialSDKPromptResources.bundle in Resources */,
 				0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */,
@@ -785,6 +793,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = PhoneGap_Component/PhoneGap_Component.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 486K7NX823;
@@ -821,7 +830,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.UmengPlus.UMDemo;
 				PRODUCT_NAME = PhoneGap_Component;
-				PROVISIONING_PROFILE = "e5c7e4a9-7546-45f7-973f-8d90a99f2fb5";
+				PROVISIONING_PROFILE = "d7989896-2ef1-4d06-ad50-98c42486487e";
 				PROVISIONING_PROFILE_SPECIFIER = UMengPlusDemo_dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -872,7 +881,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.UmengPlus.UMDemo;
 				PRODUCT_NAME = PhoneGap_Component;
-				PROVISIONING_PROFILE = "e5c7e4a9-7546-45f7-973f-8d90a99f2fb5";
+				PROVISIONING_PROFILE = "d7989896-2ef1-4d06-ad50-98c42486487e";
 				PROVISIONING_PROFILE_SPECIFIER = UMengPlusDemo_dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

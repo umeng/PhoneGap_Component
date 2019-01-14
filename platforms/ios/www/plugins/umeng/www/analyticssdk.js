@@ -118,220 +118,41 @@ cordova.define("Umeng.Analytics", function(require, exports, module) {
         cordova.exec(null, null, "AnalyticsSDK", "profileSignOff", []);
 
     },
-    /**
-     * 当玩家建立角色或者升级时，需调用此接口
-     *
-     * @param level
-     *            int类型.等级
-     */
-    setUserLevelId:function(level) {
-        cordova.exec(null, null, "AnalyticsSDK", "setUserLevelId", [level]);
 
-    },
-    /**
-     * 游戏中关卡开始的时候调用此方法。
-     *
-     * @param level
-     *            String类型.
-     */
-    startLevel:function(level) {
-        cordova.exec(null, null, "AnalyticsSDK", "startLevel", [level]);
-
-    },
-    /**
-     * 游戏中成功过关的时候调用此方法
-     *
-     * @param level
-     *            String类型.
-     */
-    finishLevel:function(level) {
-        cordova.exec(null, null, "AnalyticsSDK", "finishLevel", [level]);
-
-    },
-    /**
-     * 游戏中在某一关卡失败的时候调用此方法
-     *
-     * @param level
-     *            String类型.
-     */
-
-    failLevel:function(level) {
-        cordova.exec(null, null, "AnalyticsSDK", "failLevel", [level]);
-
-    },
-    /**
-     * 统计订单的接口
-     *
-     * @param currencyAmount
-     *            double类型.货币金额
-     * @param currencyType
-     *            String类型.货币类型
-     * @param virtualAmount
-     *            double类型.虚拟货币金额
-     * @param channel
-     *            int类型.
-     *            </p>
-     *            本次消费的途径:1.AppStore 2.支付宝 3.网银 4.财付通 5.移动 6.联通 7.电信 8.paypal
-     * @param orderId
-     *            String类型.订单ID
-     */
-
-    exchange:function(currencyAmount,currencyType,virtualAmount,channel,orderId) {
-        cordova.exec(null, null, "AnalyticsSDK", "exchange", [currencyAmount,currencyType,virtualAmount,channel,orderId]);
-
-    },
-    /**
-     * 游戏中真实消费（充值）的时候调用此方法 1.AppStore 2.支付宝 3.网银 4.财付通 5.移动 6.联通 7.电信 8.paypal
-     *
-     * @param money
-     *            double类型.本次消费金额
-     * @param coin
-     *            double类型.本次消费等值的虚拟币
-     * @param source
-     *            int类型.本次消费的途径，网银，支付宝 等
-     */
-
-    pay:function(money, coin, source) {
-        cordova.exec(null, null, "AnalyticsSDK", "pay", [ money, coin, source ]);
-
-    },
-    /**
-     * 游戏中真实消费（购买物品）的时候调用此方法
-     *
-     * @param money
-     *            double类型.本地消费金额
-     * @param item
-     *            String类型. 本次购买物品名称
-     * @param number
-     *            int类型.本地购买物品数量
-     * @param price
-     *            double类型.本地购买等值虚拟币
-     * @param source
-     *            int类型.本次消费的途径，网银支付宝等
-     */
-    payWithItem:function(money, item, number, price, source) {
-        cordova.exec(null, null, "AnalyticsSDK", "payWithItem", [ money, item, number, price, source ]);
-
-    },
-    /**
-     * 游戏中虚拟消费（购买物品）的时候调用此方法
-     *
-     * @param item
-     *            String类型.本地购买的物品名称
-     * @param number
-     *            int类型.本地购买的物品数量
-     * @param price
-     *            double类型.本地购买花费的虚拟币数量
-     */
-
-    buy : function(item, number, price) {
-        cordova.exec(null, null, "AnalyticsSDK", "buy", [ item, number, price ]);
-
-    },
-    /**
-     * 游戏中使用道具时候调用此方法
-     *
-     * @param item
-     *            String类型. 道具名称
-     * @param number
-     *            int类型. 数量
-     * @param price
-     *            double类型.等值虚拟币
-     */
-    use : function(item, number, price) {
-        cordova.exec(null, null, "AnalyticsSDK", "use", [ item, number, price ]);
-
-    },
-    /**
-     * 游戏中免费获得额外金币时调用此方法
-     *
-     * @param coin
-     *            double类型. 奖励金币数额
-     * @param source
-     *            int类型.奖励金币的触发原因
-     */
-
-    bonus : function(coin, source) {
-        cordova.exec(null, null, "AnalyticsSDK", "bonus", [ coin, source ]);
-
-    },
-    /**
-     * 游戏中免费获得额外金币时调用此方法
-     *
-     * @param item
-     *            String类型. 道具名称
-     * @param number
-     *            int类型. 数量
-     * @param price
-     *            double类型.等值虚拟币
-     * @param source
-     *            int类型.本次消费的途径，网银支付宝等
-     */
-
-    bonusWithItem : function(item, number, price, source) {
-        cordova.exec(null, null, "AnalyticsSDK", "bonusWithItem", [ item, number, price, source ]);
-
-    },
-    /** Dplus增加事件
-     * @param eventName 事件名
-     *              String类型.事件名
-     *
-     */
-    track : function(eventName) {
-        cordova.exec(null, null, "AnalyticsSDK","track", [ eventName ]);
-    },
-
-     /** Dplus增加事件
-      * @param eventName
-      *              String类型.事件名
-      * @param property
-      *              Dictionary类型.自定义属性
-      *
-      */
-     trackWithProperty : function(eventName, property) {
-         cordova.exec(null, null, "AnalyticsSDK","trackWithProperty", [ eventName, property]);
-     },
 
      /** * 设置属性 键值对 会覆盖同名的key
-      * 将该函数指定的key-value写入dplus专用文件；APP启动时会自动读取该文件的所有key-value，并将key-value自动作为后续所有track事件的属性。
+      * 将该函数指定的key-value写入文件；APP启动时会自动读取该文件的所有key-value。
       * @param property
       *              Dictionary类型.自定义属性
       *
       */
-      registerSuperProperty : function(property) {
-         cordova.exec(null, null, "AnalyticsSDK","registerSuperProperty", [property]);
+      registerPreProperties : function(property) {
+         cordova.exec(null, null, "AnalyticsSDK","registerPreProperties", [property]);
       },
 
-     /** * 从dplus专用文件中删除指定key-value
+     /** * 删除指定key-value
       * @param propertyName
       *              String类型.自定义属性
       *
       */
-      unregisterSuperProperty : function(propertyName) {
-          cordova.exec(null, null, "AnalyticsSDK","unregisterSuperProperty", [propertyName]);
+      unregisterPreProperty : function(propertyName) {
+          cordova.exec(null, null, "AnalyticsSDK","unregisterPreProperty", [propertyName]);
        },
 
-       /** 返回dplus专用文件中key对应的value；如果不存在，则返回空
-        * @param propertyName
-        *              String类型.自定义属性
+       
+
+       /** 返回所有key-value；如果不存在，则返回空。
         *
         */
-        getSuperProperty : function(callBack,propertyName) {
-               cordova.exec(callBack, null, "AnalyticsSDK","getSuperProperty", [propertyName]);
+        getPreProperties : function(callBack) {
+               cordova.exec(callBack, null, "AnalyticsSDK","getPreProperties", []);
         },
 
-       /** 返回Dplus专用文件中的所有key-value；如果不存在，则返回空。
-        *
-        */
-        getSuperProperties : function(callBack) {
-               cordova.exec(callBack, null, "AnalyticsSDK","getSuperProperties", []);
-        },
-
-        /** * 清空Dplus专用文件中的所有key-value。
+        /** * 清空所有key-value。
          *
          */
-         clearSuperProperties : function() {
-               cordova.exec(null, null, "AnalyticsSDK","clearSuperProperties", []);
+         clearPreProperties : function() {
+               cordova.exec(null, null, "AnalyticsSDK","clearPreProperties", []);
          },
 
         /** * 设置关注事件是否首次触发,只关注eventList前五个合法eventID.只要已经保存五个,此接口无效

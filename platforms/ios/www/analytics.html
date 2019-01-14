@@ -95,79 +95,30 @@
        onclick="AnalyticsAgent.onPageEnd('Home')" />
 
 <br />
-<br /> UMDplus:
+<input type="button" value="registerPreProperties"
+       onclick="AnalyticsAgent.registerPreProperties({'name':'Jerry','age':'23'})" />
 <br />
-<input type="button" value="track"
-       onclick="AnalyticsAgent.track('eventA')" />
+<input type="button" value="unregisterPreProperty"
+       onclick="AnalyticsAgent.unregisterPreProperty('name')" />
 <br />
-<input type="button" value="trackWithProperty"
-       onclick="AnalyticsAgent.trackWithProperty('eventB',{'name':'Tom','age':'21'})" />
+<input type="button" value="getPreProperties"
+       onclick="AnalyticsAgent.getPreProperties(function(r){alert('' +r);},'age')" />
 <br />
-<input type="button" value="registerSuperProperty"
-       onclick="AnalyticsAgent.registerSuperProperty({'name':'Jerry','age':'23'})" />
-<br />
-<input type="button" value="unregisterSuperProperty"
-       onclick="AnalyticsAgent.unregisterSuperProperty('name')" />
-<br />
-<input type="button" value="getSuperProperty"
-       onclick="AnalyticsAgent.getSuperProperty(getSuperProperty,'age')" />
-<br />
-<input type="button" value="getSuperProperties"
-       onclick="AnalyticsAgent.getSuperProperties(getSuperProperties)" />
-<br />
-<input type="button" value="clearSuperProperties"
-       onclick="AnalyticsAgent.clearSuperProperties()" />
+<input type="button" value="clearPreProperties"
+       onclick="AnalyticsAgent.clearPreProperties()" />
 <br />
 <input type="button" value="setFirstLaunchEvent"
        onclick="AnalyticsAgent.setFirstLaunchEvent(['arrayA','arrayB','arrayC'])" />
 
 <br />
-<br /> UMGame:
-<br />
-<input type="button" value="profileSignInWithPUID"
-       onclick="AnalyticsAgent.profileSignInWithPUID('example_id')" />
-<br />
+
 <input type="button" value="profileSignInWithPUIDWithProvider"
        onclick="AnalyticsAgent.profileSignInWithPUIDWithProvider('UM','example_id')" />
 <br />
 <input type="button" value="profileSignOff"
        onclick="AnalyticsAgent.profileSignOff()" />
 <br />
-<input type="button" value="setUserLevelId"
-       onclick="AnalyticsAgent.setUserLevelId(12)" />
-<br />
-<input type="button" value="startLevel"
-       onclick="AnalyticsAgent.startLevel('Level-13')" />
-<br />
-<input type="button" value="finishLevel"
-       onclick="AnalyticsAgent.finishLevel('Level-13')" />
-<br />
-<input type="button" value="failLevel"
-       onclick="AnalyticsAgent.failLevel('Level-13')" />
-<br />
 
-<input type="button" value="exchange"
-       onclick="AnalyticsAgent.exchange(100,'RMB',10000,2,'0EDKJH123HJ53')" />
-<br />
-<input type="button" value="pay"
-       onclick="AnalyticsAgent.pay(21,99,10)" />
-<br />
-<input type="button" value="payWithItem"
-       onclick="AnalyticsAgent.payWithItem(222,'payWithItem',200,203.30,77)" />
-<br />
-<input type="button" value="buy"
-       onclick="AnalyticsAgent.buy('buyApple',4,302)" />
-<br />
-<input type="button" value="use"
-       onclick="AnalyticsAgent.use('useApple',5,303)" />
-<br />
-<input type="button" value="bonus"
-       onclick="AnalyticsAgent.bonus(200,6)" />
-<br />
-<input type="button" value="bonusWithItem"
-       onclick="AnalyticsAgent.bonusWithItem('bonusItem',7,201,10)" />
-<br />
-<br />
 <br />
 <input type="button" value="返回" margin=40
        onclick="gotoBack()" />

@@ -13,7 +13,7 @@ import com.umeng.commonsdk.UMConfigure;
 
 public class PGCommonSDK {
     public static void init(Context context, String appkey, String channel, int type, String secret){
-        initCocos("phonegap","1.0");
+        initCocos("phonegap","2.0");
         UMConfigure.init(context,appkey,channel,type,secret);
     }
     public static void initCocos(String v,String t){
@@ -35,8 +35,5 @@ public class PGCommonSDK {
             e.printStackTrace();
         }
     }
-    public static void setLogEnabled(boolean able){
 
-        UMConfigure.setLogEnabled(able);
-    }
 }

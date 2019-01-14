@@ -37,9 +37,9 @@ public class App extends Application {
 	    public void onCreate() {
 	        super.onCreate();
 
-	        PGCommonSDK.setLogEnabled(true);
+			UMConfigure.setLogEnabled(true);
 
-			PGCommonSDK.init(this, "59892f08310c9307b60023d0", "Umeng", UMConfigure.DEVICE_TYPE_PHONE,
+			UMConfigure.init(this, "59892f08310c9307b60023d0", "Umeng", UMConfigure.DEVICE_TYPE_PHONE,
 	            "669c30a9584623e70e8cd01b0381dcb4");
 	        initUpush();
 	    }

@@ -1,45 +1,59 @@
 # 工程配置
 首先需要说明，PhoneGap下载的只是桥接文件，不含最新版本的jar，对应组件的jar请去[下载中心](https://developer.umeng.com/sdk)下载。
+
 如果对于文档仍有疑问的，请参照我们在github上的[demo](https://github.com/umeng/PhoneGap_Component)
 
-* 注意：分支cordova_8.1.2提供基于cordova android 7.1.4 和 cordova ios 4.5.5框架结构集成示例。
+* 注意：集成基础组件库 2.0.0以下及统计SDK 8.0.0以下版本的用户，请参考release1.0.0分支中样例代码集成。
+
 
 ## PhoneGap开发环境搭建
 
 ### 下载安装Node.js
-检查node.js环境，下载地址：https://nodejs.org/en/
+检查node.js环境，下载地址：[https://nodejs.org/en/](https://nodejs.org/en/)
 
-```
+``` shell
 node -v
 
 ```
 
 ### 安装PhoneGap
 
-```
+``` shell
 npm install -g phonegap
+
 ```
 
 安装完成后，检验是否成功，输入
-```
+
+
+``` shell 
 phonegap -version
-```输出phonegap版本号标识安装成功
+
+```
+
+输出phonegap版本号标识安装成功。
+
 
 ### 安装Cordova
 
-```
+``` shell
 npm install -g cordova
+
 ```
 
 安装完成后，检验是否成功，输入
-```
+
+``` shell
 cordova -version
-```输出cordova版本号标识安装成功
+```
+
+输出cordova版本号标识安装成功。
+
 
 ### 创建PhoneGap应用
 
 
-```
+``` shell
 phonegap create demo
 
 cd demo
@@ -52,6 +66,7 @@ phonegap add ios
 
 
 ## Android
+
 ### 初始化
 
 将下载的jar放入app下的libs中：
@@ -71,7 +86,7 @@ phonegap add ios
 
 打开Application文件，修改如下：
 
-```
+``` java
   @Override
 	    public void onCreate() {
 	        super.onCreate();
@@ -131,7 +146,8 @@ phonegap add ios
 
  
  * 找到Android工程res目录下xml/config.xml配置文件，添加对友盟各个业务SDK插件的引用：
- 
+
+
 ``` xml
  
 <plugins>
@@ -151,18 +167,20 @@ phonegap add ios
  ![](http://dev.umeng.com/system/images/W1siZiIsIjIwMTgvMTIvMDcvMTVfNDdfNDdfNTUzX3BpYzEucG5nIl1d/pic1.png)
 
 
- 
 
 至此，所有的工程配置已经完成，接下来请按照各个组件的文档进行初始化。
 
 ## iOS
+
 ### 初始化
+
 + 将已下载的友盟SDK添加到项目
 
 ![](http://upload-images.jianshu.io/upload_images/1483670-1dc704e7b7c5dd42.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 + 添加需要的组件桥接文件
+
  ![](http://upload-images.jianshu.io/upload_images/7304622-62d16ae4a9e99442.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
  
 + 添加友盟初始化配置文件
@@ -184,10 +202,13 @@ phonegap add ios
 ```
 
 ### 工程配置
+
 #### 引入js文件
+
 将js文件引入至plugins下
 
 #### 配置cordova_plugins.js
+
 将cordova_plugins.js里module.exports中加入
 
 ```
@@ -240,13 +261,16 @@ module.exports = [
 
 
 
-## 接口说明
+# 接口说明
+
 # 统计
+
 ## Android
+
 ### 初始化
 首先需要找到Activity的生命周期，添加如下代码：
 
-```
+``` java
   @Override
     public void onResume() {
         super.onResume();
@@ -263,12 +287,14 @@ module.exports = [
 并在`onCreat`中设置统计的场景，以及发送间隔：
 
 ```
-MobclickAgent.setSessionContinueMillis(1000);
-MobclickAgent.setScenarioType(this, EScenarioType.E_DUM_NORMAL);
+MobclickAgent.setSessionContinueMillis(1000*30);
+
 ```
 
 ## iOS
+
 ### 初始化
+
 在工程的 AppDelegate.m 文件中引入相关组件头文件 ，且在 application:didFinishLaunchingWithOptions: 方法中添加如下代码：
 
 ```
@@ -286,126 +312,90 @@ js部分首先需要使用`analyticssdk.js`文件：
 
 
 ## 接口说明
+
 ### 自定义事件
+
 ```
-AnalyticsAgent.onEvent(eventId);
+MobclickAgent.onEvent(eventId);
 
-AnalyticsAgent.onEventWithLable(eventId,eventLabel);
+MobclickAgent.onEventWithLable(eventId,eventLabel);
 
-AnalyticsAgent.onEventWithMap(eventId,eventData);
+MobclickAgent.onEventWithParameters(eventId,eventData);
 
-AnalyticsAgent.onEventWithMapAndCount(eventId,eventData,eventNum);
+MobclickAgent.onEventWithCounter(eventId,eventData,eventNum);
+
+MobclickAgent.onEventObject(eventId, eventData);
 ```
 * eventId 为当前统计的事件ID
 * eventLabel 为分类标签
 * eventData 为当前事件的属性和取值（键值对），不能为空，如：{name:"umeng",sex:"man"}
-* eventNum 用户每次触发的数值的分布情况，如事件持续时间、每次付款金额等
+* eventNum 用户每次触发的数值的分布情况，如事件持续时间、每次付款金额等'
 
 ### 账号的统计
+
 ```
-AnalyticsAgent.profileSignInWithPUID(puid);
+MobclickAgent.profileSignInWithPUID(puid);
 ```
+
 * puid 用户账号ID.长度小于64字节
 
+``` 
+MobclickAgent.profileSignInWithPUIDWithProvider(provider,puid);
 ```
-AnalyticsAgent.profileSignOff()；
-```
- * 账号登出时需调用此接口，调用之后不再发送账号相关内容
 
-### Dplus 统计
-#### track事件
-```
-AnalyticsAgent.track(eventName);
+* provider, 账号来源。puid 用户账号ID.长度小于64字节
 
-AnalyticsAgent.trackWithMap(eventName, property);
-```
-* eventName 事件名称
-* property 事件的自定义属性（可以包含多对“属性名-属性值”）,如：{name:"umeng",sex:"man"}
-
-#### 超级属性
-```
-AnalyticsAgent.registerSuperProperty(property);
-```
-* property 事件的超级属性（可以包含多对“属性名-属性值”）,如：{name:"umeng",sex:"man"}
 
 ```
-AnalyticsAgent.clearSuperProperties();
+MobclickAgent.profileSignOff()；
 ```
-* 清空所有超级属性
+
+* 账号登出时需调用此接口，调用之后不再发送账号相关内容
+
+
+
+### 预置事件属性接口
+
+```
+MobclickAgent.registerPreProperties(property);
+```
+
+* 注册预置事件属性。property 事件的超级属性（可以包含多对“属性名-属性值”）,如：{name:"umeng",sex:"man"}
+
+```
+MobclickAgent.unregisterPreProperty(propertyName);
+```
+
+* 注销预置事件属性。propertyName，要注销的预置事件属性名。
+
+```
+MobclickAgent.getPreProperties(context);
+```
+
+* 获取预置事件属性, 返回包含所有预置事件属性的JSONObject。
+
+```
+MobclickAgent.clearPreProperties();
+```
+
+* 清空全部预置事件属性。
 
 #### 设置关注事件是否首次触发
+
 ```
-AnalyticsAgent.setFirstLaunchEvent(eventList);
+MobclickAgent.setFirstLaunchEvent(eventList);
 ```
+
 * eventList 只关注eventList前五个合法eventID.只要已经保存五个,此接口无效,如：["list1","list2","list3"]
 
-### 游戏统计
-
-#### 关卡
-```
-AnalyticsAgent.startLevel(level); //进入关卡
-
-AnalyticsAgent.failLevel(level); //通过关卡
-
-AnalyticsAgent.finishLevel(level); //完成关卡
-```
-* level 关卡ID
-
-#### 充值
-```
-AnalyticsAgent.pay(cash, source, price);
-
-AnalyticsAgent.payWithItem(cash, source, item, amount, price);
-```
-* cash 真实币数量，>=0的数,最多只保存小数点后2位
-* source 支付渠道，1 ~ 99的整数, 其中1..20 是预定义含义,其余21-99需要在网站设置。
-* coin 虚拟币数量，大于等于0的整数, 最多只保存小数点后2位
-* item 道具ID
-* amount 道具数量，大于0的整数
-* price 虚拟币数量
-
-#### 购买
-```
-AnalyticsAgent.buy(item, amount, price);
-```
-* item 道具ID
-* amount 道具数量,大于0的整数
-* price 道具单价
-
-#### 消耗
-```
-AnalyticsAgent.use(item, amount, price);
-```
-* item 道具ID
-* amount 道具数量,大于0的整数
-* price 道具单价
-
-#### 额外奖励
-```
-AnalyticsAgent.bonus(coin, source); //赠送金币
-
-AnalyticsAgent.bonusWithItem(item, amount, price, source); //赠送道具
-```
- * coin 虚拟币数量，大于0的整数, 最多只保存小数点后2位
- * source 奖励渠道，取值在 1~10 之间。“1”已经被预先定义为“系统奖励”，2~10 需要在网站设置含义
- * item 道具ID，非空字符串
- * amount 道具数量，大于0的整数
- * price 道具单价
-
-#### 交易兑换货币
-```
-AnalyticsAgent.exchange(orderId, currencyAmount, currencyType, virtualAmount, channel);
-```
-* currencyAmount 现金或等价物总额
-* currencyType 为ISO4217定义的3位字母代码，如CNY,USD等（如使用其它自定义等价物作为现金，可使用ISO4217中未定义的3位字母组合传入货币类型）
-* virtualAmount 虚拟币数量
-* channel 支付渠道
-* orderId 交易订单ID
 
 
 # 推送
+
 ## Android
+
 ### 初始化
+
 首先，Android push需要让Android app依赖我们提供的push module（请替换最新的umeng-push-xx.jar），再根据文档进行相应的初始化。
 
 Push SDK 的平台配置与单独 Native 项目集成相同，请参考 [接入Push SDK](http://dev.umeng.com/sdk_integate/android_sdk/android_push_doc#1) 以及 [初始化设置部分](http://dev.umeng.com/sdk_integate/android_sdk/android_push_doc#2_1)
